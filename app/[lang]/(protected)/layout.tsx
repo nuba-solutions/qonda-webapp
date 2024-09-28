@@ -15,7 +15,7 @@ const PrivateLayout = async ({ children }: { children: React.ReactNode }) => {
     return (
         <QondaQueryCLientProvider>
             <div className="flex min-h-screen w-full flex-col">
-                <header className="sticky top-0 flex h-[4.5rem] w-full items-center justify-between gap-4 border-b bg-background">
+                <header className="sticky top-0 z-50 flex h-[4.5rem] w-full items-center justify-between gap-4 border-b bg-background">
                     <Navbar />
                     <MobileNav />
                     <div className="mr-4 flex items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
