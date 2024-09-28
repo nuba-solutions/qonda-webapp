@@ -1,0 +1,27 @@
+{
+    "pages": {
+        "login": {
+            "title": "Inicio de sesión",
+            "subtitle": "Introduzca sus credenciales para acceder a su cuenta",
+            "form": {
+                "labels": {
+                    "username": "Usuario",
+                    "password": "Contraseña"
+                },
+                "placeholders": {
+                    "email": "johnsmith@mail.com",
+                    "password": "Introduzca su contraseña"
+                },
+                "buttons": {
+                    "login": "Iniciar de sesión"
+                },
+                "forgot_password": "¿Olvidó su contraseña?",
+                "validations": {
+                    "credentials": "Credenciales inválidas",
+                    "username": "Nombre de usuario inválido",
+                    "password": "Contraseña inválida"
+                }
+            }
+        }
+    }
+}

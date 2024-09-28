@@ -1,0 +1,27 @@
+{
+    "pages": {
+        "login": {
+            "title": "Login",
+            "subtitle": "Enter your credentials to login to your account",
+            "form": {
+                "labels": {
+                    "username": "Username",
+                    "password": "Password"
+                },
+                "placeholders": {
+                    "email": "johnsmith@mail.com",
+                    "password": "Enter your password"
+                },
+                "buttons": {
+                    "login": "Login"
+                },
+                "forgot_password": "Forgot your password ?",
+                "validations": {
+                    "credentials": "Invalid credentials",
+                    "username": "Invalid username",
+                    "password": "Password cannot be empty"
+                }
+            }
+        }
+    }
+}
