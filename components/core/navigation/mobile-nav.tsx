@@ -7,9 +7,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import MobileNavLink from './mobile-nav-link'
+import { useDictionaryStore } from '@/stores/dictionary-store'
 
 const MobileNav = () => {
+    const { dictionary } = useDictionaryStore()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+
     return (
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <div className="flex items-center gap-4">
@@ -46,44 +49,86 @@ const MobileNav = () => {
                         />
                     </Link>
                     <MobileNavLink
-                        name="Dashboard"
-                        text="Business Intelligence"
+                        name={
+                            dictionary?.core?.navigation?.links?.dashboard[
+                                'name'
+                            ]
+                        }
+                        text={
+                            dictionary?.core?.navigation?.links?.dashboard[
+                                'text'
+                            ]
+                        }
                         path="/dashboard"
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
-                        name="Candidates"
-                        text="Manage Candidates"
+                        name={
+                            dictionary?.core?.navigation?.links?.hr_funnel[
+                                'name'
+                            ]
+                        }
+                        text={
+                            dictionary?.core?.navigation?.links?.hr_funnel[
+                                'text'
+                            ]
+                        }
                         path="/candidates"
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
-                        name="Staff"
-                        text="Manage Employees"
+                        name={
+                            dictionary?.core?.navigation?.links?.staff['name']
+                        }
+                        text={
+                            dictionary?.core?.navigation?.links?.staff['text']
+                        }
                         path="/staff"
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
-                        name="Former Employees"
-                        text="Manage Ex Employees"
+                        name={
+                            dictionary?.core?.navigation?.links
+                                ?.former_employees['name']
+                        }
+                        text={
+                            dictionary?.core?.navigation?.links
+                                ?.former_employees['text']
+                        }
                         path="/former-employees"
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
-                        name="Units"
-                        text="Manage Locations"
+                        name={
+                            dictionary?.core?.navigation?.links?.units['name']
+                        }
+                        text={
+                            dictionary?.core?.navigation?.links?.units['text']
+                        }
                         path="/units"
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
-                        name="Analytics"
-                        text="Data Visualization"
+                        name={
+                            dictionary?.core?.navigation?.links?.analytics[
+                                'name'
+                            ]
+                        }
+                        text={
+                            dictionary?.core?.navigation?.links?.analytics[
+                                'text'
+                            ]
+                        }
                         path="/analytics"
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
-                        name="Users"
-                        text="Manage Users"
+                        name={
+                            dictionary?.core?.navigation?.links?.users['name']
+                        }
+                        text={
+                            dictionary?.core?.navigation?.links?.users['text']
+                        }
                         path="/users"
                         setIsMenuOpen={setIsMenuOpen}
                     />

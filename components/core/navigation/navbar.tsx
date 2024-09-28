@@ -1,9 +1,14 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import NavLink from './nav-link'
+import { useDictionaryStore } from '@/stores/dictionary-store'
 
 const Navbar = () => {
+    const { dictionary } = useDictionaryStore()
+
     return (
         <nav className="hidden h-full flex-col font-medium md:flex-row md:items-center lg:flex">
             <Link
@@ -18,39 +23,57 @@ const Navbar = () => {
                 />
             </Link>
             <NavLink
-                name="Dashboard"
-                text="Business Intelligence"
+                name={dictionary?.core?.navigation?.links?.dashboard['name']}
+                text={dictionary?.core?.navigation?.links?.dashboard['text']}
                 path="/dashboard"
             />
             <NavLink
-                name="HR Funnel"
-                text="Human resources"
+                name={dictionary?.core?.navigation?.links?.hr_funnel['name']}
+                text={dictionary?.core?.navigation?.links?.hr_funnel['text']}
                 path=""
                 childrenLinks={[
                     {
-                        name: 'Candidates',
+                        name: dictionary?.core?.navigation?.links?.candidates[
+                            'name'
+                        ],
+                        text: dictionary?.core?.navigation?.links?.candidates[
+                            'text'
+                        ],
                         path: '/candidates',
-                        text: 'Manage Candidates',
                     },
                     {
-                        name: 'Staff',
+                        name: dictionary?.core?.navigation?.links?.staff[
+                            'name'
+                        ],
+                        text: dictionary?.core?.navigation?.links?.staff[
+                            'text'
+                        ],
                         path: '/staff',
-                        text: 'Manage Employees',
                     },
                     {
-                        name: 'Former employees',
+                        name: dictionary?.core?.navigation?.links
+                            ?.former_employees['name'],
+                        text: dictionary?.core?.navigation?.links
+                            ?.former_employees['text'],
                         path: '/former-employees',
-                        text: 'Manage Ex Employees',
                     },
                 ]}
             />
-            <NavLink name="Units" text="Manage Locations" path="/units" />
             <NavLink
-                name="Analytics"
-                text="Data Visualization"
+                name={dictionary?.core?.navigation?.links?.units['name']}
+                text={dictionary?.core?.navigation?.links?.units['text']}
+                path="/units"
+            />
+            <NavLink
+                name={dictionary?.core?.navigation?.links?.analytics['name']}
+                text={dictionary?.core?.navigation?.links?.analytics['text']}
                 path="/analytics"
             />
-            <NavLink name="Users" text="Manage Users" path="/users" />
+            <NavLink
+                name={dictionary?.core?.navigation?.links?.users['name']}
+                text={dictionary?.core?.navigation?.links?.users['text']}
+                path="/users"
+            />
         </nav>
     )
 }

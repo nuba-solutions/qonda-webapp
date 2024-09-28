@@ -22,6 +22,100 @@
                     "password": "Contraseña inválida"
                 }
             }
+        },
+        "dashboard": {
+            "headers": {
+                "main": {
+                    "title": "Panel",
+                    "subtitle": "Inteligencia de Negocios"
+                }
+            }
+        },
+        "candidates": {
+            "headers": {
+                "main": {
+                    "title": "Candidatos",
+                    "subtitle": "Gestionar Candidatos"
+                }
+            }
+        },
+        "staff": {
+            "headers": {
+                "main": {
+                    "title": "Empleados",
+                    "subtitle": "Gestionar Empleados"
+                }
+            }
+        },
+        "former_employees": {
+            "headers": {
+                "main": {
+                    "title": "Ex Empleados",
+                    "subtitle": "Gestionar Ex Empleados"
+                }
+            }
+        },
+        "units": {
+            "headers": {
+                "main": {
+                    "title": "Unidades",
+                    "subtitle": "Gestionar Ubicaciones"
+                }
+            }
+        },
+        "analytics": {
+            "headers": {
+                "main": {
+                    "title": "Analítica",
+                    "subtitle": "Visualización de Datos"
+                }
+            }
+        },
+        "users": {
+            "headers": {
+                "main": {
+                    "title": "Usuarios",
+                    "subtitle": "Gestionar Usuarios"
+                }
+            }
+        }
+    },
+    "core": {
+        "navigation": {
+            "links": {
+                "dashboard": {
+                    "name": "Panel",
+                    "text": "Inteligencia de Negocios"
+                },
+                "hr_funnel": {
+                    "name": "Embudo de RH",
+                    "text": "Recursos Humanos"
+                },
+                "candidates": {
+                    "name": "Candidatos",
+                    "text": "Gestionar Candidatos"
+                },
+                "staff": {
+                    "name": "Empleados",
+                    "text": "Gestionar Empleados"
+                },
+                "former_employees": {
+                    "name": "Ex Empleados",
+                    "text": "Gestionar Ex Empleados"
+                },
+                "units": {
+                    "name": "Unidades",
+                    "text": "Gestionar Ubicaciones"
+                },
+                "analytics": {
+                    "name": "Analítica",
+                    "text": "Visualización de Datos"
+                },
+                "users": {
+                    "name": "Usuarios",
+                    "text": "Gestionar Usuarios"
+                }
+            }
         }
     }
 }

@@ -1,16 +1,30 @@
+import { getDictionary } from '@/actions/core/dictionary'
 import StatsCard from '@/components/core/cards/stats-card'
+import DonutChart from '@/components/core/charts/donut-chart'
+import LargeLineChart from '@/components/core/charts/large-line-chart'
 import PageHeader from '@/components/core/headers/page-header'
+import {
+    DonutChartData,
+    LargeLineChartData,
+} from '@/constants/charts/fake-data'
+import { Locale } from '@/i18n.config'
 import React from 'react'
-import { HiOutlineUserPlus } from 'react-icons/hi2'
-import { PiFileX } from 'react-icons/pi'
-import { TbActivity, TbCalendarUp } from 'react-icons/tb'
+import { TbActivity, TbCalendarUp, TbFileX, TbUsersPlus } from 'react-icons/tb'
 
-const DashboardPage = () => {
+const DashboardPage = async ({
+    params: { lang },
+}: {
+    params: { lang: Locale }
+}) => {
+    const dictionary = await getDictionary(lang as Locale)
+
     return (
         <section id="dashboard-section">
             <PageHeader
-                title="Dashboard"
-                subtitle="Business Intelligence"
+                title={dictionary?.pages?.dashboard?.headers?.main['title']}
+                subtitle={
+                    dictionary?.pages?.dashboard?.headers?.main['subtitle']
+                }
                 className="flex-row items-center justify-between"
             ></PageHeader>
             <div className="grid gap-4 p-4 md:grid-cols-2 2xl:grid-cols-4">
@@ -18,15 +32,13 @@ const DashboardPage = () => {
                     title="Total applicants"
                     text="Including all sources"
                     value="1200"
-                    icon={
-                        <HiOutlineUserPlus className="h-7 w-7 text-primary" />
-                    }
+                    icon={<TbUsersPlus className="h-7 w-7 text-primary" />}
                 />
                 <StatsCard
                     title="Incomplete applicants"
                     text="-10% compared to last month"
                     value="89"
-                    icon={<PiFileX className="h-7 w-7 text-primary" />}
+                    icon={<TbFileX className="h-7 w-7 text-primary" />}
                 />
                 <StatsCard
                     title="Total interviews scheduled"
@@ -39,6 +51,18 @@ const DashboardPage = () => {
                     text="-2.4% compared to last month"
                     value="97%"
                     icon={<TbActivity className="h-7 w-7 text-primary" />}
+                />
+                <LargeLineChart
+                    title="New candidates"
+                    text="Showing total applicants for the last 3 months"
+                    className="md:col-span-2 2xl:col-span-3"
+                    chartData={LargeLineChartData}
+                />
+                <DonutChart
+                    title="Important data"
+                    text="January - June 2024"
+                    className=""
+                    chartData={DonutChartData}
                 />
             </div>
         </section>

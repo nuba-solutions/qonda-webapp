@@ -15,7 +15,7 @@ const LoginPage = async ({
     const dictionary = await getDictionary(lang)
 
     return (
-        <div className="3xl:grid-cols-[1fr_900px] w-full lg:grid lg:min-h-[600px] lg:grid-cols-[1fr_450px] xl:min-h-screen xl:grid-cols-[1fr_550px] 2xl:grid-cols-[1fr_680px]">
+        <div className="3xl:grid-cols-[1fr_900px] h-[calc(100vh-50px)] w-full lg:grid lg:min-h-[600px] lg:grid-cols-[1fr_450px] xl:min-h-screen xl:grid-cols-[1fr_550px] 2xl:grid-cols-[1fr_680px]">
             <div className="relative hidden lg:block">
                 <div className="absolute left-10 top-10">
                     <Image
@@ -34,7 +34,7 @@ const LoginPage = async ({
                     className="h-full max-h-screen w-full max-w-full object-cover object-right"
                 />
             </div>
-            <div className="flex h-screen items-center justify-center py-12">
+            <div className="flex h-[calc(100vh-30px)] items-center justify-center py-12">
                 <div className="mx-auto grid w-[350px] gap-6">
                     <div className="grid gap-2 text-center">
                         <Image
@@ -44,13 +44,13 @@ const LoginPage = async ({
                             height={90}
                             className="mx-auto lg:hidden"
                         />
-                        <Separator className="my-4 lg:hidden" />
-                        <h1 className="text-3xl font-bold">
+                        <h1 className="hidden text-3xl font-bold lg:block">
                             {dictionary.pages.login['title']}
                         </h1>
                         <p className="text-muted-foreground">
                             {dictionary.pages.login['subtitle']}
                         </p>
+                        <Separator className="my-4 lg:hidden" />
                     </div>
                     <LoginForm dictionary={dictionary} lang={lang} />
                 </div>

@@ -22,6 +22,100 @@
                     "password": "Password cannot be empty"
                 }
             }
+        },
+        "dashboard": {
+            "headers": {
+                "main": {
+                    "title": "Dashboard",
+                    "subtitle": "Business Intelligence"
+                }
+            }
+        },
+        "candidates": {
+            "headers": {
+                "main": {
+                    "title": "Candidates",
+                    "subtitle": "Manage Candidates"
+                }
+            }
+        },
+        "staff": {
+            "headers": {
+                "main": {
+                    "title": "Staff",
+                    "subtitle": "Manage Employees"
+                }
+            }
+        },
+        "former_employees": {
+            "headers": {
+                "main": {
+                    "title": "Former employees",
+                    "subtitle": "Manage Ex Employees"
+                }
+            }
+        },
+        "units": {
+            "headers": {
+                "main": {
+                    "title": "Units",
+                    "subtitle": "Manage Locations"
+                }
+            }
+        },
+        "analytics": {
+            "headers": {
+                "main": {
+                    "title": "Analytics",
+                    "subtitle": "Data Visualization"
+                }
+            }
+        },
+        "users": {
+            "headers": {
+                "main": {
+                    "title": "Users",
+                    "subtitle": "Manage Users"
+                }
+            }
+        }
+    },
+    "core": {
+        "navigation": {
+            "links": {
+                "dashboard": {
+                    "name": "Dashboard",
+                    "text": "Business Intelligence"
+                },
+                "hr_funnel": {
+                    "name": "HR Funnel",
+                    "text": "Human resources"
+                },
+                "candidates": {
+                    "name": "Candidates",
+                    "text": "Manage Candidates"
+                },
+                "staff": {
+                    "name": "Staff",
+                    "text": "Manage Employees"
+                },
+                "former_employees": {
+                    "name": "Former employees",
+                    "text": "Manage Ex Employees"
+                },
+                "units": {
+                    "name": "Units",
+                    "text": "Manage Locations"
+                },
+                "analytics": {
+                    "name": "Analytics",
+                    "text": "Data Visualization"
+                },
+                "users": {
+                    "name": "Users",
+                    "text": "Manage Users"
+                }
+            }
         }
     }
 }

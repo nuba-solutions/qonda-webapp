@@ -1,6 +1,13 @@
+import { getDictionary } from '@/actions/core/dictionary'
 import PageHeader from '@/components/core/headers/page-header'
+import { Locale } from '@/i18n.config'
 
-const AutomationPage = () => {
+const AutomationPage = async ({
+    params: { lang },
+}: {
+    params: { lang: Locale }
+}) => {
+    const dictionary = await getDictionary(lang as Locale)
     return (
         <section id="automation-section">
             <PageHeader

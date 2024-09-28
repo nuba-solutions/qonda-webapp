@@ -21,7 +21,7 @@ const StatsCard = ({
     return (
         <Card x-chunk="dashboard-01-chunk-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-0">
-                <CardTitle className="text-md font-semibold uppercase text-muted-foreground">
+                <CardTitle className="text-md font-semibold uppercase">
                     {title}
                 </CardTitle>
                 {icon}
@@ -30,7 +30,7 @@ const StatsCard = ({
                 <div className="text-3xl font-bold xl:text-5xl">{value}</div>
             </CardContent>
             <CardFooter>
-                <p className="text-xs text-muted-foreground">{text}</p>
+                <p className="text-sm text-muted-foreground">{text}</p>
             </CardFooter>
         </Card>
     )

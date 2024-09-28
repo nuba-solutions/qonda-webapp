@@ -129,6 +129,7 @@ export function LoginForm({
                                     }
                                 </FormLabel>
                                 <Link
+                                    tabIndex={-1}
                                     href="#"
                                     className="ml-auto inline-block text-sm underline"
                                 >

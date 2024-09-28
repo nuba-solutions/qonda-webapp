@@ -5,8 +5,8 @@ import { cookies } from 'next/headers'
 
 const getLocale = (request: NextRequest): string | undefined => {
     const cookieStore = cookies()
-    if (cookieStore.has('igw_app_locale')) {
-        const localeCookie = cookieStore.get('igw_app_locale')
+    if (cookieStore.has('qonda_locale')) {
+        const localeCookie = cookieStore.get('qonda_locale')
         return localeCookie?.value
     }
     return i18n.defaultLocale
