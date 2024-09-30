@@ -64,12 +64,12 @@ const MobileNav = () => {
                     />
                     <MobileNavLink
                         name={
-                            dictionary?.core?.navigation?.links?.hr_funnel[
+                            dictionary?.core?.navigation?.links?.candidates[
                                 'name'
                             ]
                         }
                         text={
-                            dictionary?.core?.navigation?.links?.hr_funnel[
+                            dictionary?.core?.navigation?.links?.candidates[
                                 'text'
                             ]
                         }
