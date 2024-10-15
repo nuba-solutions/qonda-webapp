@@ -5,12 +5,10 @@ import axios from 'axios'
 
 export const getCandidatesList = async () => {
     const response = await axios
-        .get<TCandidate[]>(
-            `${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`
-        )
+        .get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
         .then(async (res) => {
             if (res.status === 200) {
-                return res.data
+                return res.data.data
             }
             return null
         })
@@ -24,12 +22,10 @@ export const getCandidatesList = async () => {
 
 export const getCandidateByID = async (candidateId: number) => {
     const response = await axios
-        .get<TCandidate[]>(
-            `${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`
-        )
+        .get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
         .then(async (res) => {
             if (res.status === 200) {
-                return res.data.filter(
+                return res.data.data.filter(
                     (cdt: TCandidate) => cdt.id === candidateId
                 )[0]
             }
@@ -45,12 +41,10 @@ export const getCandidateByID = async (candidateId: number) => {
 
 export const deleteCandidate = async (candidateId: number) => {
     const response = await axios
-        .delete<TCandidate[]>(
-            `${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`
-        )
+        .delete(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
         .then(async (res) => {
             if (res.status === 200) {
-                return res.data.filter(
+                return res.data.data.filter(
                     (cdt: TCandidate) => cdt.id !== candidateId
                 )[0]
             }
@@ -69,7 +63,7 @@ export const createCandidate = async (values: TCandidate) => {
         .post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
         .then(async (res) => {
             if (res.status === 200) {
-                return res.data
+                return res.data.data
             }
             return null
         })
@@ -89,7 +83,7 @@ export const updateCandidate = async (
         .post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
         .then(async (res) => {
             if (res.status === 200) {
-                return res.data
+                return res.data.data
             }
             return null
         })

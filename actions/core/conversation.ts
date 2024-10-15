@@ -3,12 +3,10 @@ import axios from 'axios'
 
 export const getConversationByID = async (conversationId: string) => {
     const response = await axios
-        .get<TConversation[]>(
-            `${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/conversation.json`
-        )
+        .get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/conversation.json`)
         .then(async (res) => {
             if (res.status === 200) {
-                return res.data.filter(
+                return res.data.data.filter(
                     (cdt: TConversation) =>
                         cdt.conversationId === conversationId
                 )[0]
