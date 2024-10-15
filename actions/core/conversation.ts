@@ -3,7 +3,9 @@ import axios from 'axios'
 
 export const getConversationByID = async (conversationId: string) => {
     const response = await axios
-        .get<TConversation[]>('http://localhost:3000/mock/conversation.json')
+        .get<TConversation[]>(
+            `${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/conversation.json`
+        )
         .then(async (res) => {
             if (res.status === 200) {
                 return res.data.filter(

@@ -5,7 +5,9 @@ import axios from 'axios'
 
 export const getCandidatesList = async () => {
     const response = await axios
-        .get<TCandidate[]>('http://localhost:3000/mock/candidates.json')
+        .get<TCandidate[]>(
+            `${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`
+        )
         .then(async (res) => {
             if (res.status === 200) {
                 return res.data
@@ -22,7 +24,9 @@ export const getCandidatesList = async () => {
 
 export const getCandidateByID = async (candidateId: number) => {
     const response = await axios
-        .get<TCandidate[]>('http://localhost:3000/mock/candidates.json')
+        .get<TCandidate[]>(
+            `${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`
+        )
         .then(async (res) => {
             if (res.status === 200) {
                 return res.data.filter(
@@ -41,7 +45,9 @@ export const getCandidateByID = async (candidateId: number) => {
 
 export const deleteCandidate = async (candidateId: number) => {
     const response = await axios
-        .delete<TCandidate[]>('http://localhost:3000/mock/candidates.json')
+        .delete<TCandidate[]>(
+            `${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`
+        )
         .then(async (res) => {
             if (res.status === 200) {
                 return res.data.filter(
@@ -60,7 +66,7 @@ export const deleteCandidate = async (candidateId: number) => {
 
 export const createCandidate = async (values: TCandidate) => {
     const response = await axios
-        .post('http://localhost:3000/mock/candidates.json')
+        .post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
         .then(async (res) => {
             if (res.status === 200) {
                 return res.data
@@ -80,7 +86,7 @@ export const updateCandidate = async (
     candidateId: number
 ) => {
     const response = await axios
-        .post('http://localhost:3000/mock/candidates.json')
+        .post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
         .then(async (res) => {
             if (res.status === 200) {
                 return res.data
