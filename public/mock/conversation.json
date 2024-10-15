@@ -1,0 +1,175 @@
+[
+    {
+        "conversationId": "abc123",
+        "title": "Chat with Support AI",
+        "participants": [
+            { "id": "user_1", "name": "John Doe", "role": "user" },
+            { "id": "agent_1", "name": "Qonda AI", "role": "ai" }
+        ],
+        "messages": [
+            {
+                "id": "msg_1",
+                "senderId": "user_1",
+                "content": "Hello! I need help with my account.",
+                "timestamp": "2024-10-14T14:30:05Z"
+            },
+            {
+                "id": "msg_2",
+                "senderId": "agent_1",
+                "content": "Sure! Could you provide your account number?",
+                "timestamp": "2024-10-14T14:30:15Z"
+            },
+            {
+                "id": "msg_3",
+                "senderId": "user_1",
+                "content": "It's 123456.",
+                "timestamp": "2024-10-14T14:30:30Z"
+            }
+        ],
+        "status": "completed",
+        "createdAt": "2024-10-14T14:29:00Z",
+        "updatedAt": "2024-10-14T14:31:00Z"
+    },
+    {
+        "conversationId": "xyz789",
+        "title": "Technical Assistance",
+        "participants": [
+            { "id": "user_2", "name": "Jane Smith", "role": "user" },
+            { "id": "agent_2", "name": "Qonda AI", "role": "ai" }
+        ],
+        "messages": [
+            {
+                "id": "msg_4",
+                "senderId": "user_2",
+                "content": "My internet is not working.",
+                "timestamp": "2024-10-13T09:15:10Z"
+            },
+            {
+                "id": "msg_5",
+                "senderId": "agent_2",
+                "content": "Have you tried restarting your router?",
+                "timestamp": "2024-10-13T09:15:25Z"
+            },
+            {
+                "id": "msg_6",
+                "senderId": "user_2",
+                "content": "Yes, still no luck.",
+                "timestamp": "2024-10-13T09:15:40Z"
+            },
+            {
+                "id": "msg_7",
+                "senderId": "agent_2",
+                "content": "I'll escalate this to our technical team.",
+                "timestamp": "2024-10-13T09:16:00Z"
+            },
+            {
+                "id": "msg_8",
+                "senderId": "user_2",
+                "content": "Yes, still no luck.",
+                "timestamp": "2024-10-13T09:15:40Z"
+            },
+            {
+                "id": "msg_9",
+                "senderId": "agent_2",
+                "content": "I'll escalate this to our technical team.",
+                "timestamp": "2024-10-13T09:16:00Z"
+            },
+            {
+                "id": "msg_10",
+                "senderId": "user_2",
+                "content": "Yes, still no luck.",
+                "timestamp": "2024-10-13T09:15:40Z"
+            },
+            {
+                "id": "msg_11",
+                "senderId": "agent_2",
+                "content": "I'll escalate this to our technical team.",
+                "timestamp": "2024-10-13T09:16:00Z"
+            }
+        ],
+        "status": "in_progress",
+        "createdAt": "2024-10-13T09:10:00Z",
+        "updatedAt": "2024-10-13T09:16:00Z"
+    },
+    {
+        "conversationId": "lmn456",
+        "title": "Order Inquiry",
+        "participants": [
+            { "id": "user_3", "name": "Alex Johnson", "role": "user" },
+            { "id": "agent_3", "name": "Qonda AI", "role": "ai" }
+        ],
+        "messages": [
+            {
+                "id": "msg_8",
+                "senderId": "user_3",
+                "content": "When will my order be delivered?",
+                "timestamp": "2024-10-12T15:45:10Z"
+            },
+            {
+                "id": "msg_9",
+                "senderId": "agent_3",
+                "content": "Your order is scheduled to arrive on October 15th.",
+                "timestamp": "2024-10-12T15:45:25Z"
+            }
+        ],
+        "status": "completed",
+        "createdAt": "2024-10-12T15:40:00Z",
+        "updatedAt": "2024-10-12T15:45:25Z"
+    },
+    {
+        "conversationId": "pqr678",
+        "title": "Billing Support",
+        "participants": [
+            { "id": "user_4", "name": "Chris Lee", "role": "user" },
+            { "id": "agent_4", "name": "Qonda AII", "role": "ai" }
+        ],
+        "messages": [
+            {
+                "id": "msg_10",
+                "senderId": "user_4",
+                "content": "I was overcharged for my subscription.",
+                "timestamp": "2024-10-11T08:10:10Z"
+            },
+            {
+                "id": "msg_11",
+                "senderId": "agent_4",
+                "content": "Let me check. Can you share your subscription ID?",
+                "timestamp": "2024-10-11T08:10:30Z"
+            },
+            {
+                "id": "msg_12",
+                "senderId": "user_4",
+                "content": "It's SUB123456.",
+                "timestamp": "2024-10-11T08:11:00Z"
+            }
+        ],
+        "status": "in_progress",
+        "createdAt": "2024-10-11T08:00:00Z",
+        "updatedAt": "2024-10-11T08:11:00Z"
+    },
+    {
+        "conversationId": "stu012",
+        "title": "AI Feedback Session",
+        "participants": [
+            { "id": "user_5", "name": "Taylor Green", "role": "user" },
+            { "id": "agent_1", "name": "Qonda AI", "role": "ai" }
+        ],
+        "messages": [
+            {
+                "id": "msg_13",
+                "senderId": "user_5",
+                "content": "How do you handle privacy?",
+                "timestamp": "2024-10-10T12:20:10Z"
+            },
+            {
+                "id": "msg_14",
+                "senderId": "agent_1",
+                "content": "I do not store personal information unless necessary for the conversation.",
+                "timestamp": "2024-10-10T12:20:30Z"
+            }
+        ],
+        "status": "completed",
+        "createdAt": "2024-10-10T12:10:00Z",
+        "updatedAt": "2024-10-10T12:20:30Z"
+    }
+]

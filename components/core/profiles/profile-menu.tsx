@@ -1,3 +1,5 @@
+'use client'
+
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -6,11 +8,16 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { getUserInitials } from '@/helpers/user'
+import usePersistStore from '@/hooks/usePersistStore'
+import { useUserStore } from '@/stores/user-store'
 import Link from 'next/link'
 import React from 'react'
 import { HiChevronDown } from 'react-icons/hi2'
 
 const UserProfileMenu = () => {
+    const userStore = usePersistStore(useUserStore, (state) => state)
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -20,11 +27,15 @@ const UserProfileMenu = () => {
                             Welcome back,
                         </p>
                         <p className="font-semibold leading-4">
-                            Yohans Mendoza
+                            {userStore?.user?.first_name}{' '}
+                            {userStore?.user?.last_name}
                         </p>
                     </div>
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-white">
-                        YM
+                        {getUserInitials(
+                            userStore?.user?.first_name,
+                            userStore?.user?.last_name
+                        )}
                     </div>
                     <HiChevronDown className="ml-1 text-sm" />
                 </div>

@@ -30,6 +30,7 @@ import { useDictionaryStore } from '@/stores/dictionary-store'
 import { Locale } from '@/i18n.config'
 import { TDictionary } from '@/types/core/dictionary'
 import { login } from '@/actions/auth/login'
+import { useUserStore } from '@/stores/user-store'
 
 export function LoginForm({
     dictionary,
@@ -38,7 +39,7 @@ export function LoginForm({
     dictionary: TDictionary
     lang: Locale
 }) {
-    // const userStore = usePersistStore(useUserStore, (state) => state)
+    const userStore = usePersistStore(useUserStore, (state) => state)
     const dictionaryStore = usePersistStore(
         useDictionaryStore,
         (state) => state
@@ -79,7 +80,7 @@ export function LoginForm({
         //     return
         // }
 
-        // userStore?.updateUser(response.user)
+        userStore?.updateUser({ first_name: 'Yohans', last_name: 'Mendoza' })
 
         setFormError('')
         setIsLoading(false)

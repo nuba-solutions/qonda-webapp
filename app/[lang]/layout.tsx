@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import '../globals.css'
 import { ThemeProvider } from '@/components/providers/theme-providers'
 import { Locale } from '@/i18n.config'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,6 +31,7 @@ export default async function RootLayout({
                 >
                     {children}
                 </ThemeProvider>
+                <Toaster />
             </body>
         </html>
     )

@@ -55,13 +55,13 @@ const NavLink = ({
             <DropdownMenuTrigger asChild>
                 <div
                     className={cn(
-                        'text-md 3xl:px-10 group flex h-full cursor-pointer items-center border-b-2 border-transparent px-5 font-bold uppercase hover:bg-accent/50'
+                        'text-md group flex h-full cursor-pointer items-center border-b-2 border-transparent pl-3 pr-5 font-bold uppercase hover:bg-accent/50 3xl:pl-6 3xl:pr-10'
                     )}
                 >
                     <HiChevronDown className="mr-3" />
                     <div className="flex flex-col">
                         {name}
-                        <span className="hidden font-normal normal-case text-muted-foreground xl:block">
+                        <span className="hidden text-xs font-normal normal-case text-muted-foreground xl:block">
                             {text}
                         </span>
                     </div>
@@ -74,10 +74,10 @@ const NavLink = ({
                         key={link.path}
                         className="cursor-pointer"
                     >
-                        <Link href={link.path} className="py-3 pr-14">
-                            <div className="flex flex-col text-base font-semibold">
+                        <Link href={link.path} className="py-3 pl-4 pr-14">
+                            <div className="flex flex-col font-semibold">
                                 {link.name}
-                                <span className="text-sm font-normal normal-case text-muted-foreground">
+                                <span className="text-xs font-normal normal-case text-muted-foreground">
                                     {link.text}
                                 </span>
                             </div>
@@ -90,7 +90,7 @@ const NavLink = ({
         <Link
             href={path}
             className={cn(
-                'text-md 3xl:px-10 flex h-full items-center border-b-2 border-transparent px-5 font-bold uppercase hover:bg-accent/50',
+                'text-md flex h-full items-center border-b-2 border-transparent px-5 font-bold uppercase hover:bg-accent/50 3xl:px-10',
                 path && handleGetIsLinkActive(path) && 'border-primary'
             )}
         >
@@ -101,7 +101,7 @@ const NavLink = ({
                 )}
             >
                 {name}
-                <span className="hidden font-normal normal-case text-muted-foreground xl:block">
+                <span className="hidden text-xs font-normal normal-case text-muted-foreground xl:block">
                     {text}
                 </span>
             </div>

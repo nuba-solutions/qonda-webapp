@@ -27,7 +27,7 @@ const StatsCard = ({
                 {icon}
             </CardHeader>
             <CardContent className="py-2">
-                <div className="text-3xl font-bold xl:text-5xl">{value}</div>
+                <div className="text-3xl font-bold lg:text-4xl">{value}</div>
             </CardContent>
             <CardFooter>
                 <p className="text-sm text-muted-foreground">{text}</p>

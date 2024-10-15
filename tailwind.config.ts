@@ -6,6 +6,8 @@ const config: Config = {
         './pages/**/*.{js,ts,jsx,tsx,mdx}',
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/**/*.{ts,tsx}',
+        './helpers/**/*.{ts,tsx}',
     ],
     theme: {
         extend: {
@@ -54,6 +56,7 @@ const config: Config = {
                     foreground: 'hsl(var(--destructive-foreground))',
                 },
                 border: 'hsl(var(--border))',
+                panel: 'hsl(var(--panel))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
                 chart: {

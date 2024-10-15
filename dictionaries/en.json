@@ -37,6 +37,81 @@
                     "title": "Candidates",
                     "subtitle": "Manage Candidates"
                 }
+            },
+            "tables": {
+                "headers": {
+                    "id": "Id",
+                    "first_name": "First Name",
+                    "last_name": "Last Name",
+                    "age": "Age",
+                    "phone": "phone",
+                    "email": "Email",
+                    "unit": "Unit",
+                    "status": "Status",
+                    "interview_date": "Interview date",
+                    "enrollment_date": "Enrollment date",
+                    "actions": "Actions"
+                },
+                "filter_dropdown": {
+                    "id": "Id",
+                    "first_name": "First Name",
+                    "last_name": "Last Name",
+                    "age": "Age",
+                    "phone": "phone",
+                    "email": "Email",
+                    "unit": "Unit",
+                    "status": "Status",
+                    "interview_date": "Interview date",
+                    "enrollment_date": "Enrollment date"
+                },
+                "actions": {
+                    "title": "Candidate",
+                    "details": "Details"
+                },
+                "messages": {
+                    "error_loading": "Could not get candidates data"
+                },
+                "empty": {
+                    "title": "No candidates yet!",
+                    "subtitle": "Add your first candidate by clicking the ADD button."
+                }
+            },
+            "dialogs": {
+                "delete": {
+                    "title": "Delete candidate"
+                }
+            },
+            "forms": {
+                "labels": {
+                    "first_name": "First Name",
+                    "last_name": "Last Name",
+                    "age": "Age",
+                    "phone": "Phone",
+                    "email": "Email",
+                    "unit": "Unit",
+                    "status": "Status",
+                    "interview_date": "Interview date",
+                    "enrollment_date": "Enrollment date"
+                },
+                "placeholders": {
+                    "first_name": "John",
+                    "last_name": "Smith",
+                    "age": "25",
+                    "phone": "XXX XXX XXXX",
+                    "email": "johnsmith@mail.com",
+                    "unit": "Chicago"
+                },
+                "messages": {
+                    "create_candidate_error": "Could not create candidate!",
+                    "create_candidate_success": "Candidate created successfully!",
+                    "update_candidate_error": "Could not update candidate!",
+                    "update_candidate_success": "Candidate updated successfully!",
+                    "delete_candidate_error": "Could not delete candidate!",
+                    "delete_candidate_success": "Candidate deleted successfully!"
+                }
+            },
+            "buttons": {
+                "add_candidate": "Add candidate"
             }
         },
         "staff": {
@@ -116,6 +191,82 @@
                     "text": "Manage Users"
                 }
             }
+        },
+        "pagination": {
+            "show": "Show",
+            "showing": "showing",
+            "of": "of",
+            "records": "records",
+            "page": "page",
+            "first": "First",
+            "previous": "Previous",
+            "next": "Next",
+            "last": "Last",
+            "select_size": "Select size"
+        },
+        "buttons": {
+            "show_hide_columns": "Show / Hide Columns",
+            "ask_for_help": "Ask for help",
+            "edit": "Edit",
+            "delete": "Delete",
+            "open_menu": "Open menu",
+            "cancel": "Cancel",
+            "confirm_delete": "Confirm delete",
+            "confirm_changes": "Confirm changes",
+            "change_status": "Change status",
+            "manage_documents": "Manage documents",
+            "manage_events": "Manage events",
+            "create_event": "Create event",
+            "add_document": "Add document",
+            "expand_details": "Expand details",
+            "notes": "Notes"
+        },
+        "tables": {
+            "headers": {
+                "id": "Id"
+            }
+        },
+        "inputs": {
+            "labels": {
+                "phone_number": "Phone number",
+                "street_address": "Street address",
+                "city": "City",
+                "state": "State",
+                "zip_code": "Zip code",
+                "email": "Email",
+                "password": "Password",
+                "description": "Description"
+            },
+            "placeholders": {
+                "search": "Search ...",
+                "phone_number": "(XXX) XXX-XXXX",
+                "street_address": "1234 Main st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip_code": "XXXXX",
+                "email": "johnsmith@mail.com",
+                "password": "Enter your password",
+                "description": "Type in a description",
+                "select_option": "Please select an option"
+            }
+        },
+        "statuses": {
+            "candidates": {
+                "in_process": "In process",
+                "interview": "Interview",
+                "hired": "Hired"
+            }
+        },
+        "dialogs": {
+            "delete": {
+                "subtitle": "Are you sure you want to proceed?"
+            }
+        },
+        "messages": {
+            "loading": "Loading ...",
+            "error": "Error",
+            "success": "Success",
+            "warning": "Warning"
         }
     }
 }

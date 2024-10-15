@@ -37,6 +37,81 @@
                     "title": "Candidatos",
                     "subtitle": "Gestionar Candidatos"
                 }
+            },
+            "tables": {
+                "headers": {
+                    "id": "Id",
+                    "first_name": "Nombre",
+                    "last_name": "Apellido",
+                    "age": "Edad",
+                    "phone": "Teléfono",
+                    "email": "Correo electrónico",
+                    "unit": "Unidad",
+                    "status": "Estatus",
+                    "interview_date": "Fecha de entrevista",
+                    "enrollment_date": "Fecha de inscripción",
+                    "actions": "Acciones"
+                },
+                "filter_dropdown": {
+                    "id": "Id",
+                    "first_name": "Nombre",
+                    "last_name": "Apellido",
+                    "age": "Edad",
+                    "phone": "Teléfono",
+                    "email": "Correo electrónico",
+                    "unit": "Unidad",
+                    "status": "Estatus",
+                    "interview_date": "Fecha de entrevista",
+                    "enrollment_date": "Fecha de inscripción"
+                },
+                "actions": {
+                    "title": "Candidato",
+                    "details": "Detalles"
+                },
+                "messages": {
+                    "error_loading": "No se pudo obtener la información de los candidatos"
+                },
+                "empty": {
+                    "title": "¡No hay candidatos todavía!",
+                    "subtitle": "Agrega tu primer candidato haciendo clic en el botón AGREGAR."
+                }
+            },
+            "dialogs": {
+                "delete": {
+                    "title": "Eliminar candidato"
+                }
+            },
+            "forms": {
+                "labels": {
+                    "first_name": "Nombre",
+                    "last_name": "Apellido",
+                    "age": "Edad",
+                    "phone": "Teléfono",
+                    "email": "Correo electrónico",
+                    "unit": "Unidad",
+                    "status": "Estatus",
+                    "interview_date": "Fecha de entrevista",
+                    "enrollment_date": "Fecha de inscripción"
+                },
+                "placeholders": {
+                    "first_name": "Juan",
+                    "last_name": "Pérez",
+                    "age": "25",
+                    "phone": "XXX XXX XXXX",
+                    "email": "juanperez@correo.com",
+                    "unit": "Ciudad de México"
+                },
+                "messages": {
+                    "create_candidate_error": "¡No se pudo crear el candidato!",
+                    "create_candidate_success": "¡Candidato creado con éxito!",
+                    "update_candidate_error": "¡No se pudo actualizar el candidato!",
+                    "update_candidate_success": "¡Candidato actualizado con éxito!",
+                    "delete_candidate_error": "¡No se pudo eliminar el candidato!",
+                    "delete_candidate_success": "¡Candidato eliminado con éxito!"
+                }
+            },
+            "buttons": {
+                "add_candidate": "Agregar candidato"
             }
         },
         "staff": {
@@ -116,6 +191,82 @@
                     "text": "Gestionar Usuarios"
                 }
             }
+        },
+        "pagination": {
+            "show": "Mostrar",
+            "showing": "Mostrando",
+            "of": "de",
+            "records": "registros",
+            "page": "pagina",
+            "first": "Primero",
+            "previous": "Anterior",
+            "next": "Siguiente",
+            "last": "Ultima",
+            "select_size": "Seleccione el tamaño"
+        },
+        "buttons": {
+            "show_hide_columns": "Mostrar / Ocultar Columnas",
+            "ask_for_help": "Pedir ayuda",
+            "edit": "Editar",
+            "delete": "Eliminar",
+            "open_menu": "Abrir menu",
+            "cancel": "Cancelar",
+            "confirm_delete": "Confirmar eliminación",
+            "confirm_changes": "Confirmar cambios",
+            "change_status": "Cambiar estatus",
+            "manage_documents": "Gestionar documentos",
+            "manage_events": "Gestionar eventos",
+            "create_event": "Crear evento",
+            "add_document": "Añadir documento",
+            "expand_details": "Ver detalles",
+            "notes": "Notas"
+        },
+        "tables": {
+            "headers": {
+                "id": "Id"
+            }
+        },
+        "inputs": {
+            "labels": {
+                "phone_number": "Numero de Telefono",
+                "street_address": "Direccion",
+                "city": "Ciudad",
+                "state": "Estado",
+                "zip_code": "Codigo Postal",
+                "email": "Correo",
+                "password": "Contraseña",
+                "description": "Descripción"
+            },
+            "placeholders": {
+                "search": "Buscar ...",
+                "phone_number": "(XXX) XXX-XXXX",
+                "street_address": "1234 Calle central",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip_code": "XXXXX",
+                "email": "juanperez@mail.com",
+                "password": "Introduzca su contraseña",
+                "description": "Escriba una descripción",
+                "select_option": "Seleccione una opción"
+            }
+        },
+        "statuses": {
+            "candidates": {
+                "in_process": "En proceso",
+                "interview": "Entrevista",
+                "hired": "Contratado"
+            }
+        },
+        "dialogs": {
+            "delete": {
+                "subtitle": "¿Estás seguro de que deseas continuar?"
+            }
+        },
+        "messages": {
+            "loading": "Cargando ...",
+            "error": "Error",
+            "success": "Éxito",
+            "warning": "Advertencia"
         }
     }
 }
