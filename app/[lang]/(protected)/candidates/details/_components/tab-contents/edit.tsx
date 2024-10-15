@@ -5,7 +5,7 @@ import { TCandidate } from '@/types/pages/candidates/candidate'
 
 const TabContentEdit = ({ candidate }: { candidate: TCandidate }) => {
     return (
-        <TabsContent value="edit" className="mt-4 px-4">
+        <TabsContent value="edit" className="mt-4 lg:px-4">
             <ManageCandidateForm
                 candidate={candidate}
                 isEdit={true}
