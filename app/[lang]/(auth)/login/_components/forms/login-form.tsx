@@ -31,6 +31,7 @@ import { Locale } from '@/i18n.config'
 import { TDictionary } from '@/types/core/dictionary'
 import { login } from '@/actions/auth/login'
 import { useUserStore } from '@/stores/user-store'
+import { Separator } from '@/components/ui/separator'
 
 export function LoginForm({
     dictionary,
@@ -94,34 +95,38 @@ export function LoginForm({
                 onSubmit={loginForm.handleSubmit(onSubmit)}
                 className="space-y-4"
             >
-                <FormField
-                    control={loginForm.control}
-                    name="username"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>
-                                {dictionary.pages.login.form.labels['username']}
-                            </FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder={
-                                        dictionary.pages.login.form
-                                            .placeholders['email']
+                <div className="flex flex-col gap-4">
+                    <FormField
+                        control={loginForm.control}
+                        name="username"
+                        render={({ field }) => (
+                            <FormItem className="relative">
+                                <FormLabel>
+                                    {
+                                        dictionary.pages.login.form.labels[
+                                            'username'
+                                        ]
                                     }
-                                    {...field}
-                                    disabled={isLoading}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={loginForm.control}
-                    name="password"
-                    render={({ field }) => (
-                        <FormItem>
-                            <div className="flex items-center justify-between">
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        placeholder={
+                                            dictionary.pages.login.form
+                                                .placeholders['email']
+                                        }
+                                        {...field}
+                                        disabled={isLoading}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={loginForm.control}
+                        name="password"
+                        render={({ field }) => (
+                            <FormItem className="relative">
                                 <FormLabel>
                                     {
                                         dictionary.pages.login.form.labels[
@@ -129,59 +134,53 @@ export function LoginForm({
                                         ]
                                     }
                                 </FormLabel>
-                                <Link
-                                    tabIndex={-1}
-                                    href="#"
-                                    className="ml-auto inline-block text-sm underline"
-                                >
-                                    {
-                                        dictionary.pages.login.form[
-                                            'forgot_password'
-                                        ]
-                                    }
-                                </Link>
-                            </div>
-                            <FormControl>
-                                <div className="relative">
-                                    <Input
-                                        type={
-                                            isPasswordVisible
-                                                ? 'text'
-                                                : 'password'
-                                        }
-                                        placeholder={
-                                            dictionary.pages.login.form
-                                                .placeholders['password']
-                                        }
-                                        {...field}
-                                        disabled={isLoading}
-                                    />
-                                    <Button
-                                        tabIndex={-1}
-                                        variant="ghost"
-                                        size="icon"
-                                        type="button"
-                                        className="absolute bottom-1/2 right-1 top-1/2 -translate-y-1/2 hover:bg-transparent"
-                                        onClick={(e) => {
-                                            e.preventDefault()
-                                            setIsPasswordVisible(
-                                                !isPasswordVisible
-                                            )
-                                        }}
-                                    >
-                                        {isPasswordVisible ? (
-                                            <HiOutlineEyeSlash className="text-lg" />
-                                        ) : (
-                                            <HiOutlineEye className="text-lg" />
-                                        )}
-                                    </Button>
-                                </div>
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button className="w-full" type="submit" disabled={isLoading}>
+                                <FormControl>
+                                    <div className="relative">
+                                        <Input
+                                            type={
+                                                isPasswordVisible
+                                                    ? 'text'
+                                                    : 'password'
+                                            }
+                                            placeholder={
+                                                dictionary.pages.login.form
+                                                    .placeholders['password']
+                                            }
+                                            {...field}
+                                            disabled={isLoading}
+                                        />
+                                        <Button
+                                            tabIndex={-1}
+                                            variant="ghost"
+                                            size="icon"
+                                            type="button"
+                                            className="absolute bottom-1/2 right-1 top-1/2 -translate-y-1/2 hover:bg-transparent"
+                                            onClick={(e) => {
+                                                e.preventDefault()
+                                                setIsPasswordVisible(
+                                                    !isPasswordVisible
+                                                )
+                                            }}
+                                        >
+                                            {isPasswordVisible ? (
+                                                <HiOutlineEyeSlash className="text-lg" />
+                                            ) : (
+                                                <HiOutlineEye className="text-lg" />
+                                            )}
+                                        </Button>
+                                    </div>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+                <Button
+                    className="w-full"
+                    type="submit"
+                    size="lg"
+                    disabled={isLoading}
+                >
                     {isLoading ? (
                         <AiOutlineLoading className="animate-spin text-lg" />
                     ) : (

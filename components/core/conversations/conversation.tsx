@@ -3,6 +3,7 @@ import { TConversation, TMessage } from '@/types/core/conversation'
 import { cn } from '@/lib/utils'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 const Conversation = ({
     conversationData,
@@ -86,13 +87,9 @@ const Conversation = ({
                 ))}
                 <div ref={messageEndRef} />
             </div>
-            <div className="relative">
-                <Textarea
-                    rows={5}
-                    className="dark:bg-panel relative mt-10 resize-none bg-muted"
-                    placeholder="Start typing..."
-                />
-                <Button type="button" className="absolute bottom-4 right-4">
+            <div className="flex items-center gap-2 pt-4">
+                <Input placeholder={'Start typing ...'} />
+                <Button type="button" size="lg">
                     Send message
                 </Button>
             </div>

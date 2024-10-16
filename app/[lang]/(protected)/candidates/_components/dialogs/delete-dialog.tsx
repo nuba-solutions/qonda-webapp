@@ -17,7 +17,7 @@ const DeleteCandidateDialog = ({ candidate }: { candidate: TCandidate }) => {
     const { dictionary } = useDictionaryStore()
 
     return (
-        <DialogContent asChild>
+        <DialogContent>
             <DialogHeader className="text-left">
                 <DialogTitle>
                     {dictionary?.pages?.candidates?.dialogs?.delete['title']}

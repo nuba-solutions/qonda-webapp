@@ -136,7 +136,7 @@ const ManageCandidateForm = ({
                         control={manageCandidateForm.control}
                         name="first_name"
                         render={({ field }) => (
-                            <FormItem className="w-full">
+                            <FormItem className="relative w-full">
                                 <FormLabel>
                                     {
                                         dictionary?.pages?.candidates?.forms
@@ -161,7 +161,7 @@ const ManageCandidateForm = ({
                         control={manageCandidateForm.control}
                         name="last_name"
                         render={({ field }) => (
-                            <FormItem className="w-full">
+                            <FormItem className="relative w-full">
                                 <FormLabel>
                                     {
                                         dictionary?.pages?.candidates?.forms
@@ -186,7 +186,7 @@ const ManageCandidateForm = ({
                         control={manageCandidateForm.control}
                         name="age"
                         render={({ field }) => (
-                            <FormItem className="w-full">
+                            <FormItem className="relative w-full">
                                 <FormLabel>
                                     {
                                         dictionary?.pages?.candidates?.forms
@@ -212,7 +212,7 @@ const ManageCandidateForm = ({
                         control={manageCandidateForm.control}
                         name="phone"
                         render={({ field }) => (
-                            <FormItem className="w-full">
+                            <FormItem className="relative w-full">
                                 <FormLabel>
                                     {
                                         dictionary?.pages?.candidates?.forms
@@ -237,7 +237,7 @@ const ManageCandidateForm = ({
                         control={manageCandidateForm.control}
                         name="email"
                         render={({ field }) => (
-                            <FormItem className="w-full">
+                            <FormItem className="relative w-full">
                                 <FormLabel>
                                     {
                                         dictionary?.pages?.candidates?.forms
@@ -262,7 +262,7 @@ const ManageCandidateForm = ({
                         control={manageCandidateForm.control}
                         name="unit"
                         render={({ field }) => (
-                            <FormItem className="w-full">
+                            <FormItem className="relative w-full">
                                 <FormLabel>
                                     {
                                         dictionary?.pages?.candidates?.forms
@@ -287,7 +287,7 @@ const ManageCandidateForm = ({
                         control={manageCandidateForm.control}
                         name="status"
                         render={({ field }) => (
-                            <FormItem className="w-full">
+                            <FormItem className="relative w-full">
                                 <FormLabel>
                                     {
                                         dictionary?.pages?.candidates?.forms
@@ -351,7 +351,7 @@ const ManageCandidateForm = ({
                         control={manageCandidateForm.control}
                         name="interview_date"
                         render={({ field }) => (
-                            <FormItem className="w-full">
+                            <FormItem className="relative w-full">
                                 <FormLabel>
                                     {
                                         dictionary?.pages?.candidates?.forms
@@ -377,7 +377,7 @@ const ManageCandidateForm = ({
                         control={manageCandidateForm.control}
                         name="enrollment_date"
                         render={({ field }) => (
-                            <FormItem className="w-full">
+                            <FormItem className="relative w-full">
                                 <FormLabel>
                                     {
                                         dictionary?.pages?.candidates?.forms
