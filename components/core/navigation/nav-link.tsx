@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { cn } from '@/lib/utils'
 import usePersistStore from '@/hooks/usePersistStore'
 import NavLinkSkeleton from '@/components/core/skeletons/nav-link-skeleton'
@@ -55,7 +55,7 @@ const NavLink = ({
             <DropdownMenuTrigger asChild>
                 <div
                     className={cn(
-                        'text-md group flex h-full cursor-pointer items-center border-b-2 border-transparent pl-3 pr-5 font-bold uppercase hover:bg-accent/50 3xl:pl-6 3xl:pr-10'
+                        'text-md group flex h-full cursor-pointer items-center border-b-2 border-transparent pl-3 pr-5 font-semibold uppercase hover:bg-accent/50 3xl:pl-6 3xl:pr-10'
                     )}
                 >
                     <HiChevronDown className="mr-3" />
@@ -90,7 +90,7 @@ const NavLink = ({
         <Link
             href={path}
             className={cn(
-                'text-md flex h-full items-center border-b-2 border-transparent px-5 font-bold uppercase hover:bg-accent/50 3xl:px-10',
+                'text-md flex h-full items-center border-b-2 border-transparent px-5 font-semibold uppercase hover:bg-accent/50 3xl:px-10',
                 path && handleGetIsLinkActive(path) && 'border-primary'
             )}
         >

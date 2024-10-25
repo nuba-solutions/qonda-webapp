@@ -1,28 +1,31 @@
-import { TFile } from '@/types/core/file'
+import { TCompany } from '@/types/core/company'
 import { TLocation } from '@/types/core/location'
 import { TStatus } from '@/types/core/status'
-import { string } from 'zod'
 
-export type TCandidate = {
+export type TUser = {
     id: number
     first_name: string
     last_name: string
-    age: number
     email: string
+    password: string
+    phone: string
     address: string
     city: string
     state: string
     zip: string
-    phone: string
+    company_id: TCompany.id
+    user_type_id: TUserType.id
     location_id: TLocation.id
-    location: TLocation
     status_id: TStatus.id
-    interview_date: Date
-    enrollment_start?: Date
-    enrollment_end?: Date
+    focus_percentage: number
     created_date: Date
     updated_date: Date
+    start_date: Date
+    end_date: Date
     profile_img_url?: string
-    documents: TDocument.id[]
-    conversation: string
+}
+
+export type TUserType = {
+    id: number
+    name: string
 }

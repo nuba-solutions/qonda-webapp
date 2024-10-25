@@ -119,6 +119,23 @@ body {
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
     }
+
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        -webkit-text-fill-color: black; /* Adjust to match light mode text color */
+        -webkit-box-shadow: 0 0 0px 1000px #ffffff inset; /* White background for light mode */
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    /* Dark mode autofill styling */
+    .dark input:-webkit-autofill,
+    .dark textarea:-webkit-autofill,
+    .dark select:-webkit-autofill {
+        -webkit-text-fill-color: white; /* Adjust to match dark mode text color */
+        -webkit-box-shadow: 0 0 0px 1000px #0c0a09 inset; /* Black background for dark mode */
+        transition: background-color 5000s ease-in-out 0s;
+    }
 }
 
 /* Logo Animation */

@@ -39,27 +39,34 @@ const getUserLocaleAndFormat = (lang: Locale) => {
             return {
                 locale: es,
                 formatStr: 'dd/MM/yyyy',
+                longDateFormatStr: 'dd "de" LLLL "del" yyyy',
                 timeFormatStr: 'h:mm a',
             }
         default:
             return {
                 locale: enUS,
                 formatStr: 'MM/dd/yyyy',
+                longDateFormatStr: 'LLLL dd, yyyy',
                 timeFormatStr: 'h:mm a',
             }
     }
 }
 
 export const renderLocaleDate = (
-    date: Date | string,
+    date: Date | string | undefined,
     lang: Locale,
-    includeHours: boolean = false
+    includeHours?: boolean,
+    longDateFormat?: boolean
 ) => {
-    const { locale, formatStr, timeFormatStr } = getUserLocaleAndFormat(lang)
+    if (!date) return
 
+    const { locale, formatStr, timeFormatStr, longDateFormatStr } =
+        getUserLocaleAndFormat(lang)
+
+    const baseStr = longDateFormat ? longDateFormatStr : formatStr
     const fullFormatStr = includeHours
-        ? `${formatStr} '-' ${timeFormatStr}`
-        : formatStr
+        ? `${baseStr} '-' ${timeFormatStr}`
+        : baseStr
 
     return format(new Date(date), fullFormatStr, {
         locale: locale,

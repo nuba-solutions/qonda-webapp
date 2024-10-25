@@ -19,7 +19,7 @@ import {
     TableRow,
 } from '@/components/ui/table'
 import { cn } from '@/lib/utils'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { TDictionary } from '@/types/core/dictionary'
 import { ChevronDownIcon } from '@radix-ui/react-icons'
 import {
@@ -89,6 +89,7 @@ function DataTable<T>({
             <div className="flex flex-col gap-2 border-b pb-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="relative w-full sm:w-[250px]">
                     <Input
+                        inputSize="sm"
                         placeholder={
                             dictionary?.core?.inputs?.placeholders['search']
                         }

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import MobileNavLink from './mobile-nav-link'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 
 const MobileNav = () => {
     const { dictionary } = useDictionaryStore()

@@ -7,11 +7,26 @@
             "age": 29,
             "email": "john.doe@example.com",
             "phone": "123-456-7890",
-            "unit": "New York",
-            "status": 1,
+            "location_id": 1,
+            "location": {
+                "id": 1,
+                "name": "2nd unit East",
+                "address": "789 Main st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 1,
             "interview_date": "2024-10-15T00:00:00.000Z",
-            "enrollment_date": "2024-11-01T00:00:00.000Z",
+            "enrollment_start": "2024-11-01T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-09-01T00:00:00.000Z",
+            "updated_date": "2024-09-01T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=1",
             "files": [
                 {
@@ -21,7 +36,38 @@
                     "type": "pdf"
                 }
             ],
-            "conversation_id": "abc123"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225Z",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:15:01.219225Z",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:15:20.219225Z",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-13T10:15:20.219225Z",
+                    "user_message": "This is another message of the same conversation , but sent in the following day",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-25T10:15:20.219225Z",
+                    "user_message": "This is another message of the same conversation , but sent in today",
+                    "assistant_response": "Hi. Good to see u back here today!"
+                }
+            ]
         },
         {
             "id": 2,
@@ -30,11 +76,26 @@
             "age": 32,
             "email": "jane.smith@example.com",
             "phone": "987-654-3210",
-            "unit": "Los Angeles",
-            "status": 0,
+            "location_id": 2,
+            "location": {
+                "id": 2,
+                "name": "West Side of El Paso",
+                "address": "789 Main st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 0,
             "interview_date": "2024-10-20T00:00:00.000Z",
-            "enrollment_date": "2024-11-10T00:00:00.000Z",
+            "enrollment_start": "2024-11-10T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-09-05T00:00:00.000Z",
+            "updated_date": "2024-09-05T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=2",
             "files": [
                 {
@@ -44,20 +105,54 @@
                     "type": "pdf"
                 }
             ],
-            "conversation_id": "xyz789"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225Z",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:15:01.219225Z",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:15:20.219225Z",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                }
+            ]
         },
         {
             "id": 3,
-            "first_name": "Carlos",
-            "last_name": "Lopez",
+            "first_name": "Axel Omar",
+            "last_name": "Almodovar Ramirez",
             "age": 27,
-            "email": "carlos.lopez@example.com",
+            "email": "axel.omar.almodovar.ramirez@example.com",
             "phone": "555-123-4567",
-            "unit": "Chicago",
-            "status": 2,
+            "location_id": 1,
+            "location": {
+                "id": 1,
+                "name": "2nd unit East",
+                "address": "789 Main st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 2,
             "interview_date": "2024-09-10T00:00:00.000Z",
-            "enrollment_date": "2024-09-30T00:00:00.000Z",
+            "enrollment_start": "2024-09-30T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-08-15T00:00:00.000Z",
+            "updated_date": "2024-08-15T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=3",
             "files": [
                 {
@@ -67,7 +162,26 @@
                     "type": "docx"
                 }
             ],
-            "conversation_id": "lmn456"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225Z",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:15:01.219225Z",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:15:20.219225Z",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                }
+            ]
         },
         {
             "id": 4,
@@ -76,11 +190,26 @@
             "age": 30,
             "email": "emily.davis@example.com",
             "phone": "444-789-1230",
-            "unit": "Houston",
-            "status": 0,
+            "location_id": 3,
+            "location": {
+                "id": 3,
+                "name": "Mesa st Unit",
+                "address": "11 Mesa st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 0,
             "interview_date": "2024-10-18T00:00:00.000Z",
-            "enrollment_date": "2024-11-05T00:00:00.000Z",
+            "enrollment_start": "2024-11-05T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-09-12T00:00:00.000Z",
+            "updated_date": "2024-09-12T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=4",
             "files": [
                 {
@@ -90,7 +219,26 @@
                     "type": "jpg"
                 }
             ],
-            "conversation_id": "pqr678"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:14:43.219225",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:14:43.219225",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                }
+            ]
         },
         {
             "id": 5,
@@ -99,11 +247,26 @@
             "age": 35,
             "email": "daniel.brown@example.com",
             "phone": "123-555-7890",
-            "unit": "Phoenix",
-            "status": 1,
+            "location_id": 4,
+            "location": {
+                "id": 4,
+                "name": "El Paso 1st",
+                "address": "789 Main st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 1,
             "interview_date": "2024-10-22T00:00:00.000Z",
-            "enrollment_date": "2024-11-15T00:00:00.000Z",
+            "enrollment_start": "2024-11-15T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-09-20T00:00:00.000Z",
+            "updated_date": "2024-09-20T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=5",
             "files": [
                 {
@@ -113,7 +276,26 @@
                     "type": "pdf"
                 }
             ],
-            "conversation_id": "stu012"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225Z",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:15:01.219225Z",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:15:20.219225Z",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                }
+            ]
         },
         {
             "id": 6,
@@ -122,11 +304,26 @@
             "age": 26,
             "email": "sophia.wilson@example.com",
             "phone": "456-789-1234",
-            "unit": "Philadelphia",
-            "status": 2,
+            "location_id": 5,
+            "location": {
+                "id": 5,
+                "name": "Northeast",
+                "address": "789 Main st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 2,
             "interview_date": "2024-08-22T00:00:00.000Z",
-            "enrollment_date": "2024-09-05T00:00:00.000Z",
+            "enrollment_start": "2024-09-05T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-08-01T00:00:00.000Z",
+            "updated_date": "2024-08-01T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=6",
             "files": [
                 {
@@ -136,7 +333,26 @@
                     "type": "pptx"
                 }
             ],
-            "conversation_id": "stu012"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225Z",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:15:01.219225Z",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:15:20.219225Z",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                }
+            ]
         },
         {
             "id": 7,
@@ -145,11 +361,26 @@
             "age": 31,
             "email": "michael.clark@example.com",
             "phone": "789-123-4567",
-            "unit": "San Diego",
-            "status": 1,
+            "location_id": 3,
+            "location": {
+                "id": 3,
+                "name": "Mesa st Unit",
+                "address": "11 Mesa st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 1,
             "interview_date": "2024-10-17T00:00:00.000Z",
-            "enrollment_date": "2024-11-01T00:00:00.000Z",
+            "enrollment_start": "2024-11-01T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-09-10T00:00:00.000Z",
+            "updated_date": "2024-09-10T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=7",
             "files": [
                 {
@@ -159,7 +390,26 @@
                     "type": "pdf"
                 }
             ],
-            "conversation_id": "pqr678"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225Z",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:15:01.219225Z",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:15:20.219225Z",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                }
+            ]
         },
         {
             "id": 8,
@@ -168,11 +418,26 @@
             "age": 28,
             "email": "olivia.martinez@example.com",
             "phone": "654-321-9870",
-            "unit": "Dallas",
-            "status": 0,
+            "location_id": 4,
+            "location": {
+                "id": 4,
+                "name": "El Paso 1st",
+                "address": "789 Main st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 0,
             "interview_date": "2024-10-21T00:00:00.000Z",
-            "enrollment_date": "2024-11-10T00:00:00.000Z",
+            "enrollment_start": "2024-11-10T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-09-07T00:00:00.000Z",
+            "updated_date": "2024-09-07T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=8",
             "files": [
                 {
@@ -182,7 +447,26 @@
                     "type": "pdf"
                 }
             ],
-            "conversation_id": "pqr678"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225Z",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:15:01.219225Z",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:15:20.219225Z",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                }
+            ]
         },
         {
             "id": 9,
@@ -191,11 +475,26 @@
             "age": 33,
             "email": "liam.garcia@example.com",
             "phone": "321-987-6540",
-            "unit": "San Antonio",
-            "status": 2,
+            "location_id": 1,
+            "location": {
+                "id": 1,
+                "name": "2nd unit East",
+                "address": "789 Main st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 2,
             "interview_date": "2024-09-15T00:00:00.000Z",
-            "enrollment_date": "2024-09-30T00:00:00.000Z",
+            "enrollment_start": "2024-09-30T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-08-25T00:00:00.000Z",
+            "updated_date": "2024-08-25T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=9",
             "files": [
                 {
@@ -205,7 +504,26 @@
                     "type": "pdf"
                 }
             ],
-            "conversation_id": "lmn456"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225Z",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:15:01.219225Z",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:15:20.219225Z",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                }
+            ]
         },
         {
             "id": 10,
@@ -214,11 +532,26 @@
             "age": 25,
             "email": "emma.taylor@example.com",
             "phone": "111-222-3333",
-            "unit": "Austin",
-            "status": 0,
+            "location_id": 0,
+            "location": {
+                "id": 4,
+                "name": "El Paso 1st",
+                "address": "789 Main st",
+                "city": "El Paso",
+                "state": "Texas",
+                "zip": "79912",
+                "phone": "915 890-9090"
+            },
+            "address": "123 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "status_id": 0,
             "interview_date": "2024-09-30T00:00:00.000Z",
-            "enrollment_date": "2024-09-30T00:00:00.000Z",
+            "enrollment_start": "2024-09-30T00:00:00.000Z",
+            "enrollment_end": null,
             "created_date": "2024-08-25T00:00:00.000Z",
+            "updated_date": "2024-08-25T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=10",
             "files": [
                 {
@@ -228,7 +561,26 @@
                     "type": "pdf"
                 }
             ],
-            "conversation_id": "abc123"
+            "conversation": [
+                {
+                    "message_id": 1,
+                    "timestamp": "2024-10-11T10:14:43.219225Z",
+                    "user_message": "Hello",
+                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                },
+                {
+                    "message_id": 2,
+                    "timestamp": "2024-10-11T10:15:01.219225Z",
+                    "user_message": "Banana",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                },
+                {
+                    "message_id": 3,
+                    "timestamp": "2024-10-11T10:15:20.219225Z",
+                    "user_message": "Apple",
+                    "assistant_response": "Hello there! etc etc etc etc"
+                }
+            ]
         }
     ]
 }

@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/tooltip'
 import Link from 'next/link'
 import { HiEllipsisHorizontal } from 'react-icons/hi2'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { TCandidate } from '@/types/pages/candidates/candidate'
 import DeleteCandidateDialog from '../dialogs/delete-dialog'
 

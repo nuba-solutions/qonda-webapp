@@ -19,18 +19,16 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { AiOutlineLoading } from 'react-icons/ai'
 import { HiOutlineEye, HiOutlineEyeSlash } from 'react-icons/hi2'
-// import { useUserStore } from '@/stores/user-store'
-// import { login } from '@/actions/auth/login'
 import usePersistStore from '@/hooks/usePersistStore'
 import {
     TLoginFormSchema,
     getLoginFormSchema,
 } from '@/schemas/auth/login/validation-schema'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { Locale } from '@/i18n.config'
 import { TDictionary } from '@/types/core/dictionary'
 import { login } from '@/actions/auth/login'
-import { useUserStore } from '@/stores/user-store'
+import { useUserStore } from '@/stores/core/user-store'
 import { Separator } from '@/components/ui/separator'
 
 export function LoginForm({
@@ -175,12 +173,7 @@ export function LoginForm({
                         )}
                     />
                 </div>
-                <Button
-                    className="w-full"
-                    type="submit"
-                    size="lg"
-                    disabled={isLoading}
-                >
+                <Button className="w-full" type="submit" disabled={isLoading}>
                     {isLoading ? (
                         <AiOutlineLoading className="animate-spin text-lg" />
                     ) : (

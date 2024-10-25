@@ -1,32 +1,23 @@
-import { getConversationByID } from '@/actions/core/conversation'
-import Conversation from '@/components/core/conversations/conversation'
-import TabLoader from '@/components/core/loaders/tab-loader'
+import Chat from '@/components/core/conversations/chat'
+import { Separator } from '@/components/ui/separator'
 import { TabsContent } from '@/components/ui/tabs'
 import { TConversation } from '@/types/core/conversation'
-import { useQuery } from '@tanstack/react-query'
+import { TCandidate } from '@/types/pages/candidates/candidate'
 import React from 'react'
 
-const TabContentConversation = ({
-    conversationId,
-}: {
-    conversationId: string
-}) => {
-    const { isPending, isError, data, isFetching } = useQuery({
-        queryKey: ['conversation', conversationId],
-        queryFn: () => getConversationByID(conversationId),
-        refetchOnWindowFocus: false,
-    })
-    if (isPending || isFetching) {
-        return <TabLoader />
-    }
-
-    if (isError) {
-        return <div>Error fetching conversation</div>
-    }
-
+const TabContentConversation = ({ candidate }: { candidate: TCandidate }) => {
     return (
-        <TabsContent value="conversation">
-            <Conversation conversationData={data as TConversation} />
+        <TabsContent value="conversation" className="mt-0 p-4">
+            <div className="lg:pl-1">
+                <h2 className="text-md font-semibold">Chat</h2>
+                <p className="text-xs text-muted-foreground">AI Conversation</p>
+            </div>
+            <Separator className="my-4" />
+            <Chat
+                conversation={
+                    candidate.conversation as unknown as TConversation[]
+                }
+            />
         </TabsContent>
     )
 }

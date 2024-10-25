@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import NavLink from './nav-link'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 
 const Navbar = () => {
     const { dictionary } = useDictionaryStore()
@@ -13,7 +13,7 @@ const Navbar = () => {
         <nav className="hidden h-full flex-col font-medium md:flex-row md:items-center lg:flex">
             <Link
                 href="#"
-                className="3xl:pl-6 3xl:pr-9 flex h-full items-center justify-center bg-primary pl-4 pr-6 font-semibold md:text-base 2xl:pl-5 2xl:pr-8"
+                className="flex h-full items-center justify-center bg-primary pl-4 pr-6 font-semibold md:text-base 2xl:pl-5 2xl:pr-8 3xl:pl-6 3xl:pr-9"
             >
                 <Image
                     src={'/assets/qonda-logo-white.svg'}

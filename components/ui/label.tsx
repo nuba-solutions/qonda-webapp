@@ -19,7 +19,7 @@ const Label = React.forwardRef<
         ref={ref}
         className={cn(
             labelVariants(),
-            'absolute -top-1 left-1 z-10 bg-background px-2 py-1 text-xs',
+            'absolute left-1 top-0 z-10 bg-background px-2 text-xs',
             className
         )}
         {...props}

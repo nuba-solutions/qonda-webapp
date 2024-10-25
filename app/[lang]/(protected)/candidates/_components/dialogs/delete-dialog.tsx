@@ -9,7 +9,7 @@ import {
     getTranslatedCandidateStatus,
     renderCandidateStatus,
 } from '@/helpers/table'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { TCandidate } from '@/types/pages/candidates/candidate'
 import DeleteCandidateForm from '../forms/delete-form'
 
@@ -50,8 +50,11 @@ const DeleteCandidateDialog = ({ candidate }: { candidate: TCandidate }) => {
                     {dictionary?.pages?.candidates?.forms?.labels['status']}
                 </p>
                 {renderCandidateStatus(
-                    candidate.status,
-                    getTranslatedCandidateStatus(candidate.status, dictionary)
+                    candidate.status_id,
+                    getTranslatedCandidateStatus(
+                        candidate.status_id,
+                        dictionary
+                    )
                 )}
             </div>
 

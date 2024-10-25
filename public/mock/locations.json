@@ -1,0 +1,49 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "2nd unit East",
+            "address": "789 Main st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "phone": "915 890-9090"
+        },
+        {
+            "id": 2,
+            "name": "West Side of El Paso",
+            "address": "789 Main st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "phone": "915 890-9090"
+        },
+        {
+            "id": 3,
+            "name": "Mesa st Unit",
+            "address": "11 Mesa st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "phone": "915 890-9090"
+        },
+        {
+            "id": 4,
+            "name": "El Paso 1st",
+            "address": "789 Main st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "phone": "915 890-9090"
+        },
+        {
+            "id": 5,
+            "name": "Northeast",
+            "address": "789 Main st",
+            "city": "El Paso",
+            "state": "Texas",
+            "zip": "79912",
+            "phone": "915 890-9090"
+        }
+    ]
+}

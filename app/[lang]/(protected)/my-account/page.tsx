@@ -7,7 +7,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { Locale } from '@/i18n.config'
 import { deleteLocalStorageItem } from '@/lib/local-storage'
 import { cn } from '@/lib/utils'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 

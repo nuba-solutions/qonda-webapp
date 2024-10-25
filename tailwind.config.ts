@@ -72,6 +72,9 @@ const config: Config = {
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)',
             },
+            backgroundImage: {
+                'qonda-pattern': "url('/assets/patterns/chat-pattern-1.svg')",
+            },
         },
     },
     plugins: [require('tailwindcss-animate')],

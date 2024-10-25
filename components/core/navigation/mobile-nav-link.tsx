@@ -2,7 +2,7 @@
 
 import usePersistStore from '@/hooks/usePersistStore'
 import { cn } from '@/lib/utils'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { SetStateAction } from 'react'

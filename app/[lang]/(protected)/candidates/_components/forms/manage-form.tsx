@@ -2,7 +2,6 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-
 import { Button } from '@/components/ui/button'
 import {
     Form,
@@ -16,7 +15,7 @@ import { Input } from '@/components/ui/input'
 import { useState } from 'react'
 import { AiOutlineLoading } from 'react-icons/ai'
 import { useRouter } from 'next/navigation'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { Separator } from '@/components/ui/separator'
 import {
     Select,
@@ -26,10 +25,9 @@ import {
     SelectValue,
 } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
-import { HiOutlineFolder, HiXMark } from 'react-icons/hi2'
 import ToastNotification from '@/components/core/toasts/toast-notification'
 
-import { useQueryClient } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { TCandidate } from '@/types/pages/candidates/candidate'
 import {
     getManageCandidateFormSchema,
@@ -40,6 +38,9 @@ import {
     updateCandidate,
 } from '@/actions/pages/candidates/candidates'
 import { toast } from '@/hooks/use-toast'
+import DatePicker from '@/components/core/date-pickers/date-picker'
+import { TLocation } from '@/types/core/location'
+import { getLocationsList } from '@/actions/core/locations'
 
 const ManageCandidateForm = ({
     isEdit,
@@ -53,6 +54,12 @@ const ManageCandidateForm = ({
     const { dictionary, language } = useDictionaryStore()
     const queryClient = useQueryClient()
 
+    const { data: locationsList } = useQuery<TLocation[]>({
+        queryKey: ['locations'],
+        queryFn: () => getLocationsList(),
+        refetchOnWindowFocus: false,
+    })
+
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
 
@@ -65,10 +72,15 @@ const ManageCandidateForm = ({
             age: isEdit ? String(candidate?.age) : '',
             phone: isEdit ? candidate?.phone : '',
             email: isEdit ? candidate?.email : '',
-            unit: isEdit ? candidate?.unit : '',
-            status: isEdit ? String(candidate?.status) : '',
-            interview_date: isEdit ? candidate?.interview_date : '',
-            enrollment_date: isEdit ? candidate?.enrollment_date : '',
+            address: isEdit ? candidate?.address : '',
+            city: isEdit ? candidate?.city : '',
+            state: isEdit ? candidate?.state : '',
+            zip: isEdit ? candidate?.zip : '',
+            location_id: isEdit ? candidate?.location_id : '',
+            status_id: isEdit ? String(candidate?.status_id) : '',
+            interview_date: isEdit ? candidate?.interview_date || '' : '',
+            enrollment_start: isEdit ? candidate?.enrollment_start || '' : '',
+            enrollment_end: isEdit ? candidate?.enrollment_end || '' : '',
         },
     })
 
@@ -131,276 +143,506 @@ const ManageCandidateForm = ({
                 onSubmit={manageCandidateForm.handleSubmit(onSubmit)}
                 className="space-y-4"
             >
-                <div className="mb-8 grid grid-cols-1 gap-4 gap-x-8 md:grid-cols-2 lg:grid-cols-1 lg:flex-row lg:items-start xl:grid-cols-2">
-                    <FormField
-                        control={manageCandidateForm.control}
-                        name="first_name"
-                        render={({ field }) => (
-                            <FormItem className="relative w-full">
-                                <FormLabel>
-                                    {
-                                        dictionary?.pages?.candidates?.forms
-                                            ?.labels['first_name']
-                                    }
-                                </FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder={
+                <div>
+                    <div className="lg:pl-1">
+                        <h2 className="text-md font-semibold">
+                            Personal information
+                        </h2>
+                        <p className="text-xs text-muted-foreground">
+                            Personal related fields
+                        </p>
+                    </div>
+                    <Separator className="my-4" />
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="first_name"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {
                                             dictionary?.pages?.candidates?.forms
-                                                ?.placeholders['first_name']
+                                                ?.labels['first_name']
                                         }
-                                        {...field}
-                                        disabled={isLoading}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={manageCandidateForm.control}
-                        name="last_name"
-                        render={({ field }) => (
-                            <FormItem className="relative w-full">
-                                <FormLabel>
-                                    {
-                                        dictionary?.pages?.candidates?.forms
-                                            ?.labels['last_name']
-                                    }
-                                </FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder={
-                                            dictionary?.pages?.candidates?.forms
-                                                ?.placeholders['last_name']
-                                        }
-                                        {...field}
-                                        disabled={isLoading}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={manageCandidateForm.control}
-                        name="age"
-                        render={({ field }) => (
-                            <FormItem className="relative w-full">
-                                <FormLabel>
-                                    {
-                                        dictionary?.pages?.candidates?.forms
-                                            ?.labels['age']
-                                    }
-                                </FormLabel>
-                                <FormControl>
-                                    <Input
-                                        type="number"
-                                        placeholder={
-                                            dictionary?.pages?.candidates?.forms
-                                                ?.placeholders['age']
-                                        }
-                                        {...field}
-                                        disabled={isLoading}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={manageCandidateForm.control}
-                        name="phone"
-                        render={({ field }) => (
-                            <FormItem className="relative w-full">
-                                <FormLabel>
-                                    {
-                                        dictionary?.pages?.candidates?.forms
-                                            ?.labels['phone']
-                                    }
-                                </FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder={
-                                            dictionary?.pages?.candidates?.forms
-                                                ?.placeholders['phone']
-                                        }
-                                        {...field}
-                                        disabled={isLoading}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={manageCandidateForm.control}
-                        name="email"
-                        render={({ field }) => (
-                            <FormItem className="relative w-full">
-                                <FormLabel>
-                                    {
-                                        dictionary?.pages?.candidates?.forms
-                                            ?.labels['email']
-                                    }
-                                </FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder={
-                                            dictionary?.pages?.candidates?.forms
-                                                ?.placeholders['email']
-                                        }
-                                        {...field}
-                                        disabled={isLoading}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={manageCandidateForm.control}
-                        name="unit"
-                        render={({ field }) => (
-                            <FormItem className="relative w-full">
-                                <FormLabel>
-                                    {
-                                        dictionary?.pages?.candidates?.forms
-                                            ?.labels['unit']
-                                    }
-                                </FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder={
-                                            dictionary?.pages?.candidates?.forms
-                                                ?.placeholders['unit']
-                                        }
-                                        {...field}
-                                        disabled={isLoading}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={manageCandidateForm.control}
-                        name="status"
-                        render={({ field }) => (
-                            <FormItem className="relative w-full">
-                                <FormLabel>
-                                    {
-                                        dictionary?.pages?.candidates?.forms
-                                            ?.labels['status']
-                                    }
-                                </FormLabel>
-                                <Select
-                                    onValueChange={field.onChange}
-                                    disabled={isLoading}
-                                    defaultValue={
-                                        isEdit ? String(candidate?.status) : ''
-                                    }
-                                >
+                                    </FormLabel>
                                     <FormControl>
-                                        <SelectTrigger
-                                            className={cn(
-                                                field.value === ''
-                                                    ? 'text-muted-foreground'
-                                                    : ''
-                                            )}
+                                        <Input
+                                            placeholder={
+                                                dictionary?.pages?.candidates
+                                                    ?.forms?.placeholders[
+                                                    'first_name'
+                                                ]
+                                            }
                                             {...field}
-                                            aria-label={'Select facility'}
-                                        >
-                                            <SelectValue
-                                                placeholder={
-                                                    dictionary?.core?.inputs
-                                                        ?.placeholders[
-                                                        'select_option'
+                                            disabled={isLoading}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="last_name"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['last_name']
+                                        }
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder={
+                                                dictionary?.pages?.candidates
+                                                    ?.forms?.placeholders[
+                                                    'last_name'
+                                                ]
+                                            }
+                                            {...field}
+                                            disabled={isLoading}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="age"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['age']
+                                        }
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type="number"
+                                            placeholder={
+                                                dictionary?.pages?.candidates
+                                                    ?.forms?.placeholders['age']
+                                            }
+                                            {...field}
+                                            disabled={isLoading}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div className="lg:pl-1">
+                        <h2 className="text-md font-semibold">
+                            Contact information
+                        </h2>
+                        <p className="text-xs text-muted-foreground">
+                            Contact & address related fields
+                        </p>
+                    </div>
+                    <Separator className="my-4" />
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 lg:flex-row lg:items-start xl:grid-cols-2">
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['email']
+                                        }
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder={
+                                                dictionary?.pages?.candidates
+                                                    ?.forms?.placeholders[
+                                                    'email'
+                                                ]
+                                            }
+                                            {...field}
+                                            disabled={isLoading}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="phone"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['phone']
+                                        }
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder={
+                                                dictionary?.pages?.candidates
+                                                    ?.forms?.placeholders[
+                                                    'phone'
+                                                ]
+                                            }
+                                            {...field}
+                                            disabled={isLoading}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                    <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 lg:flex-row lg:items-start xl:grid-cols-3">
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="address"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {/* {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['phone']
+                                        } */}
+                                        Address
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            // placeholder={
+                                            //     dictionary?.pages?.candidates
+                                            //         ?.forms?.placeholders[
+                                            //         'phone'
+                                            //     ]
+                                            // }
+                                            placeholder="1234 Main st"
+                                            {...field}
+                                            disabled={isLoading}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="city"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {/* {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['phone']
+                                        } */}
+                                        City
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            // placeholder={
+                                            //     dictionary?.pages?.candidates
+                                            //         ?.forms?.placeholders[
+                                            //         'phone'
+                                            //     ]
+                                            // }
+                                            placeholder="El Paso"
+                                            {...field}
+                                            disabled={isLoading}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="state"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {/* {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['phone']
+                                        } */}
+                                        State
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            // placeholder={
+                                            //     dictionary?.pages?.candidates
+                                            //         ?.forms?.placeholders[
+                                            //         'phone'
+                                            //     ]
+                                            // }
+                                            placeholder="Texas"
+                                            {...field}
+                                            disabled={isLoading}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="zip"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {/* {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['phone']
+                                        } */}
+                                        Zip
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            // placeholder={
+                                            //     dictionary?.pages?.candidates
+                                            //         ?.forms?.placeholders[
+                                            //         'phone'
+                                            //     ]
+                                            // }
+                                            placeholder="79912"
+                                            {...field}
+                                            disabled={isLoading}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div className="lg:pl-1">
+                        <h2 className="text-md font-semibold">
+                            Application information
+                        </h2>
+                        <p className="text-xs text-muted-foreground">
+                            Job application and employment related fields
+                        </p>
+                    </div>
+                    <Separator className="my-4" />
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 lg:flex-row lg:items-start xl:grid-cols-2">
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="location_id"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {/* {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['status']
+                                        } */}
+                                        Location
+                                    </FormLabel>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        disabled={
+                                            isLoading || !locationsList?.length
+                                        }
+                                        defaultValue={
+                                            isEdit
+                                                ? String(candidate?.status_id)
+                                                : ''
+                                        }
+                                    >
+                                        <FormControl>
+                                            <SelectTrigger
+                                                className={cn(
+                                                    field.value === ''
+                                                        ? 'text-muted-foreground'
+                                                        : ''
+                                                )}
+                                                {...field}
+                                                aria-label={'Select facility'}
+                                            >
+                                                <SelectValue
+                                                    placeholder={
+                                                        dictionary?.core?.inputs
+                                                            ?.placeholders[
+                                                            'select_option'
+                                                        ]
+                                                    }
+                                                    defaultChecked={true}
+                                                />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {locationsList &&
+                                                locationsList.map(
+                                                    (location) => (
+                                                        <SelectItem
+                                                            key={location.id}
+                                                            value={String(
+                                                                location.id
+                                                            )}
+                                                        >
+                                                            {location.name}
+                                                        </SelectItem>
+                                                    )
+                                                )}
+                                        </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="status"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['status']
+                                        }
+                                    </FormLabel>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        disabled={isLoading}
+                                        defaultValue={
+                                            isEdit
+                                                ? String(candidate?.status_id)
+                                                : ''
+                                        }
+                                    >
+                                        <FormControl>
+                                            <SelectTrigger
+                                                className={cn(
+                                                    field.value === ''
+                                                        ? 'text-muted-foreground'
+                                                        : ''
+                                                )}
+                                                {...field}
+                                                aria-label={'Select facility'}
+                                            >
+                                                <SelectValue
+                                                    placeholder={
+                                                        dictionary?.core?.inputs
+                                                            ?.placeholders[
+                                                            'select_option'
+                                                        ]
+                                                    }
+                                                    defaultChecked={true}
+                                                />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            <SelectItem
+                                                value={String(0)}
+                                                key={0}
+                                            >
+                                                {
+                                                    dictionary?.core?.statuses
+                                                        ?.candidates[
+                                                        'in_process'
                                                     ]
                                                 }
-                                                defaultChecked={true}
-                                            />
-                                        </SelectTrigger>
+                                            </SelectItem>
+                                            <SelectItem
+                                                value={String(1)}
+                                                key={1}
+                                            >
+                                                {
+                                                    dictionary?.core?.statuses
+                                                        ?.candidates[
+                                                        'interview'
+                                                    ]
+                                                }
+                                            </SelectItem>
+                                            <SelectItem
+                                                value={String(2)}
+                                                key={2}
+                                            >
+                                                {
+                                                    dictionary?.core?.statuses
+                                                        ?.candidates['hired']
+                                                }
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                    <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 lg:flex-row lg:items-start xl:grid-cols-3">
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="interview_date"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {
+                                            dictionary?.pages?.candidates?.forms
+                                                ?.labels['interview_date']
+                                        }
+                                    </FormLabel>
+                                    <FormControl>
+                                        <DatePicker
+                                            isLoading={isLoading}
+                                            field={field}
+                                        />
                                     </FormControl>
-                                    <SelectContent>
-                                        <SelectItem value={String(0)} key={0}>
-                                            {
-                                                dictionary?.core?.statuses
-                                                    ?.candidates['in_process']
-                                            }
-                                        </SelectItem>
-                                        <SelectItem value={String(1)} key={1}>
-                                            {
-                                                dictionary?.core?.statuses
-                                                    ?.candidates['interview']
-                                            }
-                                        </SelectItem>
-                                        <SelectItem value={String(2)} key={2}>
-                                            {
-                                                dictionary?.core?.statuses
-                                                    ?.candidates['hired']
-                                            }
-                                        </SelectItem>
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={manageCandidateForm.control}
-                        name="interview_date"
-                        render={({ field }) => (
-                            <FormItem className="relative w-full">
-                                <FormLabel>
-                                    {
-                                        dictionary?.pages?.candidates?.forms
-                                            ?.labels['interview_date']
-                                    }
-                                </FormLabel>
-                                <FormControl>
-                                    <Input
-                                        type="date"
-                                        placeholder={
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="enrollment_start"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {/* {
                                             dictionary?.pages?.candidates?.forms
-                                                ?.placeholders['interview_date']
-                                        }
-                                        {...field}
-                                        disabled={isLoading}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={manageCandidateForm.control}
-                        name="enrollment_date"
-                        render={({ field }) => (
-                            <FormItem className="relative w-full">
-                                <FormLabel>
-                                    {
-                                        dictionary?.pages?.candidates?.forms
-                                            ?.labels['enrollment_date']
-                                    }
-                                </FormLabel>
-                                <FormControl>
-                                    <Input
-                                        type="date"
-                                        placeholder={
+                                                ?.labels['enrollment_date']
+                                        } */}
+                                        Enrollment start
+                                    </FormLabel>
+                                    <FormControl>
+                                        <DatePicker
+                                            isLoading={isLoading}
+                                            field={field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={manageCandidateForm.control}
+                            name="enrollment_end"
+                            render={({ field }) => (
+                                <FormItem className="relative w-full">
+                                    <FormLabel>
+                                        {/* {
                                             dictionary?.pages?.candidates?.forms
-                                                ?.placeholders[
-                                                'enrollment_date'
-                                            ]
-                                        }
-                                        {...field}
-                                        disabled={isLoading}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                                                ?.labels['enrollment_date']
+                                        } */}
+                                        Enrollment end
+                                    </FormLabel>
+                                    <FormControl>
+                                        <DatePicker
+                                            isLoading={isLoading}
+                                            field={field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
                 </div>
 
                 <Separator />

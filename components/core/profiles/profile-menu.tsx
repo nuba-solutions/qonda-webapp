@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { getUserInitials } from '@/helpers/user'
 import usePersistStore from '@/hooks/usePersistStore'
-import { useUserStore } from '@/stores/user-store'
+import { useUserStore } from '@/stores/core/user-store'
 import Link from 'next/link'
 import React from 'react'
 import { HiChevronDown } from 'react-icons/hi2'

@@ -5,7 +5,7 @@ import ToastNotification from '@/components/core/toasts/toast-notification'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { DialogClose } from '@/components/ui/dialog'
 import { toast } from '@/hooks/use-toast'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 

@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { useDictionaryStore } from '@/stores/dictionary-store'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 
 type TTablePaginationProps = {
     table: Table<any>
@@ -43,7 +43,10 @@ const DataTablePagination = ({
                     value={String(table.getState().pagination.pageSize)}
                     onValueChange={(value) => table.setPageSize(Number(value))}
                 >
-                    <SelectTrigger className="w-full sm:w-[180px]">
+                    <SelectTrigger
+                        className="w-full sm:w-[180px]"
+                        inputSize="sm"
+                    >
                         <SelectValue placeholder="Theme" />
                     </SelectTrigger>
                     <SelectContent>

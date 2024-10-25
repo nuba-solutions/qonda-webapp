@@ -134,7 +134,8 @@ export const getCandidatesTableColumnsDefinition = (
             cell: ({ row }) => <div>{row.getValue('email')}</div>,
         },
         {
-            accessorKey: 'unit',
+            accessorKey: 'location_id',
+            accessorFn: (candidate) => candidate.location.name || '',
             header: ({ column }) => {
                 return (
                     <span
@@ -143,17 +144,18 @@ export const getCandidatesTableColumnsDefinition = (
                             column.toggleSorting(column.getIsSorted() === 'asc')
                         }
                     >
-                        {dictionary?.pages?.candidates?.tables?.headers['unit']}
+                        {/* {dictionary?.pages?.candidates?.tables?.headers['unit']} */}
+                        Location
                         <CaretSortIcon className="h-4 w-4" />
                     </span>
                 )
             },
-            cell: ({ row }) => <div>{row.getValue('unit')}</div>,
+            cell: ({ row }) => <div>{row.getValue('location_id')}</div>,
         },
         {
             accessorKey: 'status',
             accessorFn: (candidate) =>
-                getTranslatedCandidateStatus(candidate.status, dictionary),
+                getTranslatedCandidateStatus(candidate.status_id, dictionary),
             header: ({ column }) => {
                 return (
                     <span
@@ -173,7 +175,7 @@ export const getCandidatesTableColumnsDefinition = (
             },
             cell: ({ row }) =>
                 renderCandidateStatus(
-                    row.original?.status,
+                    row.original?.status_id,
                     row.getValue('status')
                 ),
         },
@@ -203,7 +205,10 @@ export const getCandidatesTableColumnsDefinition = (
         {
             accessorKey: 'enrollment_date',
             accessorFn: (candidate) =>
-                renderLocaleDate(candidate.enrollment_date, lang),
+                renderLocaleDate(
+                    (candidate.enrollment_start as Date) || '',
+                    lang
+                ),
             header: ({ column }) => {
                 return (
                     <span
