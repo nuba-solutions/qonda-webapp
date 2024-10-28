@@ -15,9 +15,8 @@ export type TUser = {
     zip: string
     company_id: TCompany.id
     user_type_id: TUserType.id
-    location_id: TLocation.id
+    location_id: TLocation.id[]
     status_id: TStatus.id
-    focus_percentage: number
     created_date: Date
     updated_date: Date
     start_date: Date
@@ -29,3 +28,11 @@ export type TUserType = {
     id: number
     name: string
 }
+
+// Focus percentage
+// The percentage is related to teh current standings of the collaborator
+// Happy, soso, about to leave
+
+// Collaborators are candidates that changed status from applicants to hired
+
+// Former employees are candidates that are no longer hired

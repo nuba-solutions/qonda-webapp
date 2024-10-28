@@ -1,6 +1,9 @@
-export type TConversation = {
+export type TConversation = TMessage[]
+
+export type TMessage = {
     message_id: number
     timestamp: string
-    user_message: string
-    assistant_response: string
+    message: string
+    role: 'external_user' | 'assistant' | 'internal_user'
+    internal_user_name?: string
 }

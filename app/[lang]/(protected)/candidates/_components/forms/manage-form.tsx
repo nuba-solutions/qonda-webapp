@@ -41,6 +41,7 @@ import { toast } from '@/hooks/use-toast'
 import DatePicker from '@/components/core/date-pickers/date-picker'
 import { TLocation } from '@/types/core/location'
 import { getLocationsList } from '@/actions/core/locations'
+import { CANDIDATE_STATUSES } from '@/constants/candidates/statuses'
 
 const ManageCandidateForm = ({
     isEdit,
@@ -129,11 +130,13 @@ const ManageCandidateForm = ({
             ),
         })
 
+        console.log(response.data)
+
         queryClient.invalidateQueries({
             queryKey: ['candidates'],
         })
 
-        router.push(`/${language}/candidates`)
+        // router.push(`/${language}/candidates`)
         setIsLoading(false)
     }
 
@@ -451,7 +454,7 @@ const ManageCandidateForm = ({
                                         }
                                         defaultValue={
                                             isEdit
-                                                ? String(candidate?.status_id)
+                                                ? String(candidate?.location_id)
                                                 : ''
                                         }
                                     >
@@ -538,37 +541,24 @@ const ManageCandidateForm = ({
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
-                                            <SelectItem
-                                                value={String(0)}
-                                                key={0}
-                                            >
-                                                {
+                                            {CANDIDATE_STATUSES.map(
+                                                (status) => (
+                                                    <SelectItem
+                                                        value={String(
+                                                            status.id
+                                                        )}
+                                                        key={status.id}
+                                                    >
+                                                        {/* {
                                                     dictionary?.core?.statuses
                                                         ?.candidates[
                                                         'in_process'
                                                     ]
-                                                }
-                                            </SelectItem>
-                                            <SelectItem
-                                                value={String(1)}
-                                                key={1}
-                                            >
-                                                {
-                                                    dictionary?.core?.statuses
-                                                        ?.candidates[
-                                                        'interview'
-                                                    ]
-                                                }
-                                            </SelectItem>
-                                            <SelectItem
-                                                value={String(2)}
-                                                key={2}
-                                            >
-                                                {
-                                                    dictionary?.core?.statuses
-                                                        ?.candidates['hired']
-                                                }
-                                            </SelectItem>
+                                                } */}
+                                                        {status.name}
+                                                    </SelectItem>
+                                                )
+                                            )}
                                         </SelectContent>
                                     </Select>
                                     <FormMessage />

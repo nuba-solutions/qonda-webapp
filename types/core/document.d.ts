@@ -7,5 +7,6 @@ export type TDocument = {
     updated_date: Date
     status_id: number
     validated_by_id: TUser.id
-    file: TFile.id
+    file: TFile
+    candidate_id: number
 }

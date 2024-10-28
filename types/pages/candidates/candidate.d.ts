@@ -23,6 +23,6 @@ export type TCandidate = {
     created_date: Date
     updated_date: Date
     profile_img_url?: string
-    documents: TDocument.id[]
+    documents: TDocument[]
     conversation: string
 }

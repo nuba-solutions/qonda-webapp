@@ -41,8 +41,8 @@ const DatePicker = ({ inputSize, field, isLoading }: DatePickerProps) => {
                                   : 'h-12'
                         )}
                     >
-                        {field.value && typeof field.value === 'string' ? (
-                            format(field.value, 'MMM dd, yyyy')
+                        {field.value ? (
+                            format(new Date(field.value), 'MM/dd/yyyy')
                         ) : (
                             <span>Pick a date</span>
                         )}
@@ -54,7 +54,9 @@ const DatePicker = ({ inputSize, field, isLoading }: DatePickerProps) => {
                 <Calendar
                     mode="single"
                     selected={field.value}
-                    onSelect={field.onChange}
+                    onSelect={(date) =>
+                        field.onChange(date ? date.toISOString() : '')
+                    }
                     disabled={isLoading}
                     initialFocus
                     onDayClick={() => setIsCalendarOpen(false)}

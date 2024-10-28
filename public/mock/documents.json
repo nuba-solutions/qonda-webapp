@@ -1,0 +1,34 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Driver's License",
+            "created_date": "2024-09-01T00:00:00.000Z",
+            "updated_date": "2024-09-01T00:00:00.000Z",
+            "status_id": 1,
+            "validated_by_id": 1,
+            "file": {
+                "id": 1,
+                "name": "Drivers License.png",
+                "uri": "/files/resume1.pdf",
+                "type": "image"
+            },
+            "candidate_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Resume",
+            "created_date": "2024-09-01T00:00:00.000Z",
+            "updated_date": "2024-09-01T00:00:00.000Z",
+            "status_id": 0,
+            "validated_by_id": null,
+            "file": {
+                "id": 1,
+                "name": "Resume.pdf",
+                "uri": "/files/resume1.pdf",
+                "type": "pdf"
+            },
+            "candidate_id": 1
+        }
+    ]
+}

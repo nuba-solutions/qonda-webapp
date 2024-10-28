@@ -28,44 +28,70 @@
             "created_date": "2024-09-01T00:00:00.000Z",
             "updated_date": "2024-09-01T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=1",
-            "files": [
-                {
-                    "id": 1,
-                    "name": "Resume.pdf",
-                    "uri": "/files/resume1.pdf",
-                    "type": "pdf"
-                }
-            ],
+            "documents": [1, 2],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225Z",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-09-10T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:15:01.219225Z",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-09-10T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:15:20.219225Z",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-09-10T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 4,
-                    "timestamp": "2024-10-13T10:15:20.219225Z",
-                    "user_message": "This is another message of the same conversation , but sent in the following day",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-09-10T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 5,
-                    "timestamp": "2024-10-25T10:15:20.219225Z",
-                    "user_message": "This is another message of the same conversation , but sent in today",
-                    "assistant_response": "Hi. Good to see u back here today!"
+                    "timestamp": "2024-10-02T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-02T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:02:45Z",
+                    "message": "I need help ...",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 9,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. ",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         },
@@ -97,32 +123,63 @@
             "created_date": "2024-09-05T00:00:00.000Z",
             "updated_date": "2024-09-05T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=2",
-            "files": [
-                {
-                    "id": 2,
-                    "name": "Portfolio.pdf",
-                    "uri": "/files/portfolio2.pdf",
-                    "type": "pdf"
-                }
-            ],
+            "documents": [],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225Z",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-10-28T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:15:01.219225Z",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:15:20.219225Z",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-28T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-28T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-28T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. Here’s a quick example:\n\n```javascript\nexport async function getStaticProps() {\n  const data = await fetch('https://api.example.com/data');\n  const jsonData = await data.json();\n  return {\n    props: { jsonData },\n    revalidate: 60, // Regenerates every 60 seconds\n  };\n}\n```\n\nWith this setup, Next.js will regenerate the page on the server every 60 seconds, ensuring your data stays fresh without building the entire site again.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         },
@@ -154,32 +211,63 @@
             "created_date": "2024-08-15T00:00:00.000Z",
             "updated_date": "2024-08-15T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=3",
-            "files": [
-                {
-                    "id": 3,
-                    "name": "CoverLetter.docx",
-                    "uri": "/files/cover3.docx",
-                    "type": "docx"
-                }
-            ],
+            "documents": [],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225Z",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-10-28T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:15:01.219225Z",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:15:20.219225Z",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-28T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-28T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-28T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. Here’s a quick example:\n\n```javascript\nexport async function getStaticProps() {\n  const data = await fetch('https://api.example.com/data');\n  const jsonData = await data.json();\n  return {\n    props: { jsonData },\n    revalidate: 60, // Regenerates every 60 seconds\n  };\n}\n```\n\nWith this setup, Next.js will regenerate the page on the server every 60 seconds, ensuring your data stays fresh without building the entire site again.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         },
@@ -211,32 +299,63 @@
             "created_date": "2024-09-12T00:00:00.000Z",
             "updated_date": "2024-09-12T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=4",
-            "files": [
-                {
-                    "id": 4,
-                    "name": "Certificate.jpg",
-                    "uri": "/files/cert4.jpg",
-                    "type": "jpg"
-                }
-            ],
+            "documents": [],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-10-28T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:14:43.219225",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:14:43.219225",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-28T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-28T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-28T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. Here’s a quick example:\n\n```javascript\nexport async function getStaticProps() {\n  const data = await fetch('https://api.example.com/data');\n  const jsonData = await data.json();\n  return {\n    props: { jsonData },\n    revalidate: 60, // Regenerates every 60 seconds\n  };\n}\n```\n\nWith this setup, Next.js will regenerate the page on the server every 60 seconds, ensuring your data stays fresh without building the entire site again.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         },
@@ -268,32 +387,63 @@
             "created_date": "2024-09-20T00:00:00.000Z",
             "updated_date": "2024-09-20T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=5",
-            "files": [
-                {
-                    "id": 5,
-                    "name": "Transcript.pdf",
-                    "uri": "/files/transcript5.pdf",
-                    "type": "pdf"
-                }
-            ],
+            "documents": [],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225Z",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-10-28T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:15:01.219225Z",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:15:20.219225Z",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-28T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-28T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-28T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. Here’s a quick example:\n\n```javascript\nexport async function getStaticProps() {\n  const data = await fetch('https://api.example.com/data');\n  const jsonData = await data.json();\n  return {\n    props: { jsonData },\n    revalidate: 60, // Regenerates every 60 seconds\n  };\n}\n```\n\nWith this setup, Next.js will regenerate the page on the server every 60 seconds, ensuring your data stays fresh without building the entire site again.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         },
@@ -325,32 +475,63 @@
             "created_date": "2024-08-01T00:00:00.000Z",
             "updated_date": "2024-08-01T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=6",
-            "files": [
-                {
-                    "id": 6,
-                    "name": "Presentation.pptx",
-                    "uri": "/files/presentation6.pptx",
-                    "type": "pptx"
-                }
-            ],
+            "documents": [],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225Z",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-10-28T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:15:01.219225Z",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:15:20.219225Z",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-28T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-28T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-28T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. Here’s a quick example:\n\n```javascript\nexport async function getStaticProps() {\n  const data = await fetch('https://api.example.com/data');\n  const jsonData = await data.json();\n  return {\n    props: { jsonData },\n    revalidate: 60, // Regenerates every 60 seconds\n  };\n}\n```\n\nWith this setup, Next.js will regenerate the page on the server every 60 seconds, ensuring your data stays fresh without building the entire site again.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         },
@@ -382,32 +563,63 @@
             "created_date": "2024-09-10T00:00:00.000Z",
             "updated_date": "2024-09-10T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=7",
-            "files": [
-                {
-                    "id": 7,
-                    "name": "ReferenceLetter.pdf",
-                    "uri": "/files/reference7.pdf",
-                    "type": "pdf"
-                }
-            ],
+            "documents": [],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225Z",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-10-28T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:15:01.219225Z",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:15:20.219225Z",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-28T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-28T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-28T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. Here’s a quick example:\n\n```javascript\nexport async function getStaticProps() {\n  const data = await fetch('https://api.example.com/data');\n  const jsonData = await data.json();\n  return {\n    props: { jsonData },\n    revalidate: 60, // Regenerates every 60 seconds\n  };\n}\n```\n\nWith this setup, Next.js will regenerate the page on the server every 60 seconds, ensuring your data stays fresh without building the entire site again.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         },
@@ -439,32 +651,63 @@
             "created_date": "2024-09-07T00:00:00.000Z",
             "updated_date": "2024-09-07T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=8",
-            "files": [
-                {
-                    "id": 8,
-                    "name": "IDProof.pdf",
-                    "uri": "/files/idproof8.pdf",
-                    "type": "pdf"
-                }
-            ],
+            "documents": [],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225Z",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-10-28T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:15:01.219225Z",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:15:20.219225Z",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-28T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-28T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-28T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. Here’s a quick example:\n\n```javascript\nexport async function getStaticProps() {\n  const data = await fetch('https://api.example.com/data');\n  const jsonData = await data.json();\n  return {\n    props: { jsonData },\n    revalidate: 60, // Regenerates every 60 seconds\n  };\n}\n```\n\nWith this setup, Next.js will regenerate the page on the server every 60 seconds, ensuring your data stays fresh without building the entire site again.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         },
@@ -496,32 +739,63 @@
             "created_date": "2024-08-25T00:00:00.000Z",
             "updated_date": "2024-08-25T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=9",
-            "files": [
-                {
-                    "id": 9,
-                    "name": "Diploma.pdf",
-                    "uri": "/files/diploma9.pdf",
-                    "type": "pdf"
-                }
-            ],
+            "documents": [],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225Z",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-10-28T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:15:01.219225Z",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:15:20.219225Z",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-28T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-28T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-28T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. Here’s a quick example:\n\n```javascript\nexport async function getStaticProps() {\n  const data = await fetch('https://api.example.com/data');\n  const jsonData = await data.json();\n  return {\n    props: { jsonData },\n    revalidate: 60, // Regenerates every 60 seconds\n  };\n}\n```\n\nWith this setup, Next.js will regenerate the page on the server every 60 seconds, ensuring your data stays fresh without building the entire site again.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         },
@@ -553,32 +827,63 @@
             "created_date": "2024-08-25T00:00:00.000Z",
             "updated_date": "2024-08-25T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=10",
-            "files": [
-                {
-                    "id": 9,
-                    "name": "Diploma.pdf",
-                    "uri": "/files/diploma9.pdf",
-                    "type": "pdf"
-                }
-            ],
+            "documents": [],
             "conversation": [
                 {
                     "message_id": 1,
-                    "timestamp": "2024-10-11T10:14:43.219225Z",
-                    "user_message": "Hello",
-                    "assistant_response": "Hello! Welcome to Bitso, the leading cryptocurrency platform in Latin America. I'm thrilled to have you here for the job interview. Before we dive in, could you please tell me your full name?"
+                    "timestamp": "2024-10-28T10:00:00Z",
+                    "message": "Hi! Can you explain what Next.js is?",
+                    "role": "external_user",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 2,
-                    "timestamp": "2024-10-11T10:15:01.219225Z",
-                    "user_message": "Banana",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:05Z",
+                    "message": "Next.js is a React-based framework that enables server-side rendering and static site generation for web applications. It simplifies tasks like routing, API routes, and optimizations for SEO, performance, and image management.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 },
                 {
                     "message_id": 3,
-                    "timestamp": "2024-10-11T10:15:20.219225Z",
-                    "user_message": "Apple",
-                    "assistant_response": "Hello there! etc etc etc etc"
+                    "timestamp": "2024-10-28T10:00:15Z",
+                    "message": "What’s the difference between server-side rendering (SSR) and static site generation (SSG)?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 4,
+                    "timestamp": "2024-10-28T10:00:20Z",
+                    "message": "Server-side rendering (SSR) generates the HTML for a page on each request, so the content is always fresh. Static site generation (SSG), on the other hand, generates HTML at build time, creating static files that are served to users, which makes it faster but less dynamic. SSR is good for real-time data, while SSG is ideal for mostly static pages like blogs or documentation.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 5,
+                    "timestamp": "2024-10-28T10:00:30Z",
+                    "message": "Can I use both SSR and SSG in a single Next.js project?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 6,
+                    "timestamp": "2024-10-28T10:00:35Z",
+                    "message": "Yes! In Next.js, you can use both SSR and SSG based on the needs of each page. For SSR, you can export a `getServerSideProps` function in a page, and for SSG, you can use `getStaticProps`. You can even use incremental static regeneration (ISR) to combine the best of both worlds by updating static pages periodically.",
+                    "role": "assistant",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 7,
+                    "timestamp": "2024-10-28T10:00:45Z",
+                    "message": "That’s very helpful! How do I enable ISR?",
+                    "role": "external_user",
+                    "internal_user_name": ""
+                },
+                {
+                    "message_id": 8,
+                    "timestamp": "2024-10-28T10:00:50Z",
+                    "message": "To enable ISR, you use the `revalidate` option inside `getStaticProps`. Here’s a quick example:\n\n```javascript\nexport async function getStaticProps() {\n  const data = await fetch('https://api.example.com/data');\n  const jsonData = await data.json();\n  return {\n    props: { jsonData },\n    revalidate: 60, // Regenerates every 60 seconds\n  };\n}\n```\n\nWith this setup, Next.js will regenerate the page on the server every 60 seconds, ensuring your data stays fresh without building the entire site again.",
+                    "role": "assistant",
+                    "internal_user_name": ""
                 }
             ]
         }

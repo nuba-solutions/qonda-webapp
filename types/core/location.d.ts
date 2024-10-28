@@ -6,4 +6,7 @@ export type TLocation = {
     state: string
     zip: string
     phone: string
+    job_positions: TJobPosition[]
+    created_date: Date
+    updated_date: Date
 }

@@ -79,18 +79,19 @@ export const updateCandidate = async (
     values: TCandidate,
     candidateId: number
 ) => {
-    const response = await axios
-        .post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
-        .then(async (res) => {
-            if (res.status === 200) {
-                return res.data.data
-            }
-            return null
-        })
-        .catch((error) => {
-            console.log(error)
-            return null
-        })
+    // const response = await axios
+    //     .post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
+    //     .then(async (res) => {
+    //         if (res.status === 200) {
+    //             return res.data.data
+    //         }
+    //         return null
+    //     })
+    //     .catch((error) => {
+    //         console.log(error)
+    //         return null
+    //     })
 
-    return response
+    // return response
+    return { status: 200, data: values }
 }
