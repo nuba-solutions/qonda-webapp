@@ -11,8 +11,10 @@ const StaffPage = async ({
     return (
         <section id="staff-section">
             <PageHeader
-                title={dictionary?.pages?.staff?.headers?.main['title']}
-                subtitle={dictionary?.pages?.staff?.headers?.main['subtitle']}
+                // title={dictionary?.pages?.staff?.headers?.main['title']}
+                // subtitle={dictionary?.pages?.staff?.headers?.main['subtitle']}
+                title="Employees"
+                subtitle="List of employees"
                 className="flex-row items-center justify-between"
             ></PageHeader>
         </section>

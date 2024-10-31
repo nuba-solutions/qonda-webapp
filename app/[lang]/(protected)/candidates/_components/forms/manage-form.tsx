@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import {
     Form,
     FormControl,
@@ -41,7 +41,8 @@ import { toast } from '@/hooks/use-toast'
 import DatePicker from '@/components/core/date-pickers/date-picker'
 import { TLocation } from '@/types/core/location'
 import { getLocationsList } from '@/actions/core/locations'
-import { CANDIDATE_STATUSES } from '@/constants/candidates/statuses'
+import { CANDIDATE_STATUSES } from '@/constants/statuses/statuses'
+import { DrawerClose } from '@/components/ui/drawer'
 
 const ManageCandidateForm = ({
     isEdit,
@@ -637,12 +638,16 @@ const ManageCandidateForm = ({
 
                 <Separator />
 
-                <div className="flex">
-                    <Button
-                        className="ml-auto"
-                        type="submit"
-                        disabled={isLoading}
-                    >
+                <div className="flex flex-col-reverse gap-2 lg:flex-row lg:items-center lg:justify-end">
+                    {!isEdit ? (
+                        <DrawerClose
+                            tabIndex={-1}
+                            className={buttonVariants({ variant: 'outline' })}
+                        >
+                            {dictionary?.core?.buttons['cancel']}
+                        </DrawerClose>
+                    ) : null}
+                    <Button type="submit" disabled={isLoading}>
                         {isLoading ? (
                             <AiOutlineLoading className="animate-spin text-lg" />
                         ) : isEdit ? (

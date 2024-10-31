@@ -45,3 +45,20 @@ export const getManageCandidateFormSchema = (
 export type TManageCandidateFormSchema = z.infer<
     typeof manageCandidateFormSchema
 >
+
+export let changeCandidateStatusFormSchema: any
+
+export const getChangeCandidateStatusFormSchema = (dictionary?: any) => {
+    const changeCandidateStatusFormSchema = z.object({
+        id: z.coerce.number(),
+        status_id: z.coerce
+            .number()
+            .nonnegative()
+            .min(1, { message: 'please select an option' }),
+    })
+    return changeCandidateStatusFormSchema
+}
+
+export type TChangeCandidateStatusFormSchema = z.infer<
+    typeof changeCandidateStatusFormSchema
+>

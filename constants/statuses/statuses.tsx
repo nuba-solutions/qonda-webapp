@@ -60,3 +60,14 @@ export const CANDIDATE_STATUSES = [
         name: 'Contratación',
     },
 ]
+
+export const DOCUMENT_STATUS = {
+    pending: {
+        id: 0,
+        name: 'pending',
+    },
+    validated: {
+        id: 1,
+        name: 'validated',
+    },
+}

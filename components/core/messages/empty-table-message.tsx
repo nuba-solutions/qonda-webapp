@@ -1,13 +1,24 @@
+import { cn } from '@/lib/utils'
 import Image from 'next/image'
 
 type TEmptyTableMessageProps = {
     title: string
     subtitle: string
+    className?: string
 }
 
-const EmptyTableMessage = ({ title, subtitle }: TEmptyTableMessageProps) => {
+const EmptyTableMessage = ({
+    title,
+    subtitle,
+    className,
+}: TEmptyTableMessageProps) => {
     return (
-        <div className="flex min-h-[calc(100vh-15rem)] w-full flex-col items-center justify-center gap-4 px-10 lg:min-h-[calc(100vh-12rem)]">
+        <div
+            className={cn(
+                'flex min-h-[calc(100vh-15rem)] w-full flex-col items-center justify-center gap-4 px-10 lg:min-h-[calc(100vh-12rem)]',
+                className
+            )}
+        >
             <div className="flex flex-col gap-2 md:flex-row md:items-center">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg border dark:bg-secondary">
                     <span className="text-xl text-primary">

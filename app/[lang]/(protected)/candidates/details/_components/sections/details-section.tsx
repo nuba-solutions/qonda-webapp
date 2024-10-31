@@ -12,19 +12,13 @@ import TableLoader from '@/components/core/loaders/table-loader'
 import ProfileSidePanel from '../panel/profile-side-panel'
 import TabsSection from './tabs-section'
 import { HiArrowLeft } from 'react-icons/hi2'
-import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 import DeleteCandidateDialog from '../../../_components/dialogs/delete-dialog'
 import { TCandidate } from '@/types/pages/candidates/candidate'
-import { TLocation } from '@/types/core/location'
+import { useState } from 'react'
 
-const CandidateDetailsSection = ({
-    candidateId,
-    locationsList,
-}: {
-    candidateId: number
-    locationsList: TLocation[]
-}) => {
+const CandidateDetailsSection = ({ candidateId }: { candidateId: number }) => {
     const { dictionary, language } = useDictionaryStore()
+    const [isOpen, setIsOpen] = useState(false)
 
     const { isPending, isError, data, isFetching } = useQuery<TCandidate>({
         queryKey: ['candidate', candidateId],
@@ -36,7 +30,7 @@ const CandidateDetailsSection = ({
         return <TableLoader />
     }
 
-    if (isError || !locationsList) {
+    if (isError || !data) {
         return <NoDataMessage />
     }
 
@@ -62,14 +56,19 @@ const CandidateDetailsSection = ({
                     >
                         <HiArrowLeft />
                     </Link>
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Button variant={'destructive'}>
-                                {dictionary?.core?.buttons['delete']}
-                            </Button>
-                        </DialogTrigger>
-                        <DeleteCandidateDialog candidate={data} />
-                    </Dialog>
+                    <>
+                        <DeleteCandidateDialog
+                            candidate={data}
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                        />
+                        <Button
+                            onClick={() => setIsOpen(true)}
+                            variant="destructive"
+                        >
+                            Delete candidate
+                        </Button>
+                    </>
                 </div>
             </PageHeader>
             {data ? (

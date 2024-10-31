@@ -1,5 +1,4 @@
 import { buttonVariants } from '@/components/ui/button'
-import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -19,15 +18,22 @@ import { HiEllipsisHorizontal } from 'react-icons/hi2'
 import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { TCandidate } from '@/types/pages/candidates/candidate'
 import DeleteCandidateDialog from '../dialogs/delete-dialog'
+import { useState } from 'react'
 
 const CandidatesTableActions = ({ row }: { row: TCandidate }) => {
     const { dictionary, language } = useDictionaryStore()
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
 
     return (
-        <TooltipProvider>
-            <Tooltip>
-                <div className="flex items-center justify-center">
-                    <Dialog>
+        <>
+            <DeleteCandidateDialog
+                candidate={row}
+                isOpen={isDeleteDialogOpen}
+                setIsOpen={setIsDeleteDialogOpen}
+            />
+            <TooltipProvider>
+                <Tooltip>
+                    <div className="flex items-center justify-center">
                         <DropdownMenu modal={false}>
                             <DropdownMenuTrigger className="flex h-8 w-8 items-center justify-center p-0">
                                 <TooltipTrigger asChild>
@@ -87,18 +93,21 @@ const CandidatesTableActions = ({ row }: { row: TCandidate }) => {
                                         }
                                     </Link>
                                 </DropdownMenuItem>
-                                <DialogTrigger asChild>
-                                    <DropdownMenuItem className="cursor-pointer">
-                                        {dictionary?.core?.buttons['delete']}
-                                    </DropdownMenuItem>
-                                </DialogTrigger>
+                                <DropdownMenuItem
+                                    className="cursor-pointer"
+                                    onSelect={(e) => {
+                                        e.preventDefault()
+                                        setIsDeleteDialogOpen(true)
+                                    }}
+                                >
+                                    {dictionary?.core?.buttons['delete']}
+                                </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
-                        <DeleteCandidateDialog candidate={row} />
-                    </Dialog>
-                </div>
-            </Tooltip>
-        </TooltipProvider>
+                    </div>
+                </Tooltip>
+            </TooltipProvider>
+        </>
     )
 }
 

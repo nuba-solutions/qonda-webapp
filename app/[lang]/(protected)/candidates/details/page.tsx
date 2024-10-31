@@ -6,7 +6,6 @@ import {
 import { getCandidateByID } from '@/actions/pages/candidates/candidates'
 import { redirect } from 'next/navigation'
 import CandidateDetailsSection from './_components/sections/details-section'
-import { getLocationsList } from '@/actions/core/locations'
 
 const CandidateDetailsPage = async ({
     searchParams,
@@ -26,14 +25,9 @@ const CandidateDetailsPage = async ({
         queryFn: () => getCandidateByID(candidateId),
     })
 
-    const locationsList = await getLocationsList()
-
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
-            <CandidateDetailsSection
-                candidateId={candidateId}
-                locationsList={locationsList}
-            />
+            <CandidateDetailsSection candidateId={candidateId} />
         </HydrationBoundary>
     )
 }

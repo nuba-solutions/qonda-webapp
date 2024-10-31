@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { getDictionary } from '@/actions/core/dictionary'
 import { LoginForm } from './_components/forms/login-form'
 import { Separator } from '@/components/ui/separator'
+import { company } from '@/qonda.config'
 
 const LoginPage = async ({
     params: { lang },
@@ -15,18 +16,18 @@ const LoginPage = async ({
     const dictionary = await getDictionary(lang)
 
     return (
-        <div className="3xl:grid-cols-[1fr_900px] h-[calc(100vh-50px)] w-full lg:grid lg:min-h-[600px] lg:grid-cols-[1fr_450px] xl:min-h-screen xl:grid-cols-[1fr_550px] 2xl:grid-cols-[1fr_680px]">
+        <div className="h-[calc(100vh-50px)] w-full lg:grid lg:min-h-[600px] lg:grid-cols-[1fr_450px] xl:min-h-screen xl:grid-cols-[1fr_550px] 2xl:grid-cols-[1fr_680px] 3xl:grid-cols-[1fr_900px]">
             <div className="relative hidden lg:block">
                 <div className="absolute left-10 top-10">
                     <Image
-                        src={'/assets/qonda-logo-white.svg'}
+                        src={company.company_logo_white_url}
                         alt="logo"
                         width={220}
                         height={110}
                     />
                 </div>
                 <Image
-                    src={'/assets/qonda-login.png'}
+                    src={company.company_login_bg}
                     alt="Image"
                     width={1200}
                     height={800}
@@ -36,15 +37,15 @@ const LoginPage = async ({
             </div>
             <div className="flex h-[calc(100vh-30px)] items-center justify-center py-12">
                 <div className="mx-auto grid w-[350px] gap-6">
-                    <div className="grid gap-2 text-center">
+                    <div className="grid gap-2">
                         <Image
-                            src={'/assets/qonda-logo.svg'}
+                            src={company.company_logo_url}
                             alt="logo"
                             width={180}
                             height={90}
                             className="mx-auto lg:hidden"
                         />
-                        <h1 className="hidden text-3xl font-bold lg:block">
+                        <h1 className="hidden text-3xl font-semibold lg:block">
                             {dictionary.pages.login['title']}
                         </h1>
                         <p className="text-muted-foreground">

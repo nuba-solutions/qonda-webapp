@@ -7,7 +7,6 @@ import CandidatesTableActions from './actions'
 import {
     getTranslatedCandidateStatus,
     renderCandidateStatus,
-    renderLocaleDate,
 } from '@/helpers/table'
 
 export const getCandidatesTableColumnsDefinition = (
@@ -179,57 +178,57 @@ export const getCandidatesTableColumnsDefinition = (
                     row.getValue('status')
                 ),
         },
-        {
-            accessorKey: 'interview_date',
-            accessorFn: (candidate) =>
-                renderLocaleDate(candidate.interview_date, lang),
-            header: ({ column }) => {
-                return (
-                    <span
-                        className="flex h-10 cursor-pointer items-center gap-2 font-semibold"
-                        onClick={() =>
-                            column.toggleSorting(column.getIsSorted() === 'asc')
-                        }
-                    >
-                        {
-                            dictionary?.pages?.candidates?.tables?.headers[
-                                'interview_date'
-                            ]
-                        }
-                        <CaretSortIcon className="h-4 w-4" />
-                    </span>
-                )
-            },
-            cell: ({ row }) => <div>{row.getValue('interview_date')}</div>,
-        },
-        {
-            accessorKey: 'enrollment_date',
-            accessorFn: (candidate) =>
-                renderLocaleDate(
-                    (candidate.enrollment_start as Date) || '',
-                    lang
-                ),
-            header: ({ column }) => {
-                return (
-                    <span
-                        className="flex h-10 cursor-pointer items-center gap-2 font-semibold"
-                        onClick={() =>
-                            column.toggleSorting(column.getIsSorted() === 'asc')
-                        }
-                    >
-                        {
-                            dictionary?.pages?.candidates?.tables?.headers[
-                                'enrollment_date'
-                            ]
-                        }
-                        <CaretSortIcon className="h-4 w-4" />
-                    </span>
-                )
-            },
-            cell: ({ row }) => (
-                <div className="ml-auto">{row.getValue('enrollment_date')}</div>
-            ),
-        },
+        // {
+        //     accessorKey: 'interview_date',
+        //     accessorFn: (candidate) =>
+        //         renderLocaleDate(candidate.interview_date, lang),
+        //     header: ({ column }) => {
+        //         return (
+        //             <span
+        //                 className="flex h-10 cursor-pointer items-center gap-2 font-semibold"
+        //                 onClick={() =>
+        //                     column.toggleSorting(column.getIsSorted() === 'asc')
+        //                 }
+        //             >
+        //                 {
+        //                     dictionary?.pages?.candidates?.tables?.headers[
+        //                         'interview_date'
+        //                     ]
+        //                 }
+        //                 <CaretSortIcon className="h-4 w-4" />
+        //             </span>
+        //         )
+        //     },
+        //     cell: ({ row }) => <div>{row.getValue('interview_date')}</div>,
+        // },
+        // {
+        //     accessorKey: 'enrollment_date',
+        //     accessorFn: (candidate) =>
+        //         renderLocaleDate(
+        //             (candidate.enrollment_start as Date) || '',
+        //             lang
+        //         ),
+        //     header: ({ column }) => {
+        //         return (
+        //             <span
+        //                 className="flex h-10 cursor-pointer items-center gap-2 font-semibold"
+        //                 onClick={() =>
+        //                     column.toggleSorting(column.getIsSorted() === 'asc')
+        //                 }
+        //             >
+        //                 {
+        //                     dictionary?.pages?.candidates?.tables?.headers[
+        //                         'enrollment_date'
+        //                     ]
+        //                 }
+        //                 <CaretSortIcon className="h-4 w-4" />
+        //             </span>
+        //         )
+        //     },
+        //     cell: ({ row }) => (
+        //         <div className="ml-auto">{row.getValue('enrollment_date')}</div>
+        //     ),
+        // },
         {
             header: () => {
                 return (

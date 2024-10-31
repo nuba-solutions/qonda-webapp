@@ -28,7 +28,7 @@ const PageHeader = ({
             )}
         >
             <div className="min-w-fit">
-                <h1 className="text-lg font-semibold">{title}</h1>
+                <h1 className="text-lg font-semibold leading-5">{title}</h1>
                 <p className="text-xs text-muted-foreground">{subtitle}</p>
             </div>
             <>{children}</>

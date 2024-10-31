@@ -4,6 +4,7 @@ import { Poppins } from 'next/font/google'
 import { ThemeProvider } from '@/components/providers/theme-providers'
 import { Locale } from '@/i18n.config'
 import { Toaster } from '@/components/ui/toaster'
+import { company } from '@/qonda.config'
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -23,7 +24,11 @@ export default async function RootLayout({
     params: { lang: Locale }
 }>) {
     return (
-        <html lang={lang} suppressHydrationWarning>
+        <html
+            lang={lang}
+            suppressHydrationWarning
+            className={company.company_color_schema_class}
+        >
             <head />
             <body className={poppins.className}>
                 <ThemeProvider

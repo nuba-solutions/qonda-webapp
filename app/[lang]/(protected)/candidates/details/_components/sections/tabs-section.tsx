@@ -4,11 +4,12 @@ import { TCandidate } from '@/types/pages/candidates/candidate'
 import TabContentConversation from '../tab-contents/conversation'
 import TabContentProfile from '../tab-contents/profile'
 import TabContentEdit from '../tab-contents/edit'
-import TabContentFiles from '../tab-contents/files'
 import { TDictionary } from '@/types/core/dictionary'
 import { useWindowSize } from '@/hooks/useWindowSize'
 import TabsSectionSkeleton from '@/components/core/skeletons/tabs-section-skeleton'
-import { useCandidatesTabStore } from '@/stores/pages/useCandidateTabsStore'
+import TabContentDocuments from '../tab-contents/documents'
+import { useCandidateStore } from '@/stores/pages/candidates/candidate-store'
+import TabContentStatusChange from '../tab-contents/status-change'
 
 const TabsSection = ({
     candidate,
@@ -17,7 +18,7 @@ const TabsSection = ({
     candidate: TCandidate
     dictionary: TDictionary
 }) => {
-    const { current_tab, updateSelectedTab } = useCandidatesTabStore()
+    const { current_tab, updateSelectedTab } = useCandidateStore()
     const { width } = useWindowSize()
 
     if (!candidate || !dictionary || !dictionary.pages?.candidates) {
@@ -62,11 +63,19 @@ const TabsSection = ({
                 >
                     Conversation
                 </TabsTrigger>
+                <TabsTrigger
+                    onClick={() => updateSelectedTab('status_change')}
+                    value="status_change"
+                    className="h-full rounded-none border-y border-transparent px-4 font-semibold uppercase leading-[normal] data-[state=active]:border-b-primary-500 data-[state=active]:text-primary data-[state=active]:shadow-none lg:px-6"
+                >
+                    Status change
+                </TabsTrigger>
             </TabsList>
             <TabContentConversation candidate={candidate} />
             <TabContentProfile candidate={candidate} dictionary={dictionary} />
             <TabContentEdit candidate={candidate} />
-            <TabContentFiles />
+            <TabContentDocuments candidate={candidate} />
+            <TabContentStatusChange candidate={candidate} />
         </Tabs>
     )
 }
