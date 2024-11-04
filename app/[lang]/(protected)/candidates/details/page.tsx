@@ -6,17 +6,20 @@ import {
 import { getCandidateByID } from '@/actions/pages/candidates/candidates'
 import { redirect } from 'next/navigation'
 import CandidateDetailsSection from './_components/sections/details-section'
+import { Locale } from '@/i18n.config'
 
 const CandidateDetailsPage = async ({
+    params: { lang },
     searchParams,
 }: {
+    params: { lang: Locale }
     searchParams: any
 }) => {
     const candidateId = searchParams.candidateId
         ? JSON.parse(searchParams.candidateId)
         : null
 
-    if (!candidateId) redirect('/candidates')
+    if (!candidateId) redirect(`/${lang}/candidates`)
 
     const queryClient = new QueryClient()
 

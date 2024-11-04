@@ -7,7 +7,6 @@ import {
     renderCandidateStatus,
     renderLocaleDate,
 } from '@/helpers/table'
-import { TDictionary } from '@/types/core/dictionary'
 import { cn } from '@/lib/utils'
 import {
     HiChatBubbleLeftRight,
@@ -23,16 +22,17 @@ import {
 import { toast } from '@/hooks/use-toast'
 import ToastNotification from '@/components/core/toasts/toast-notification'
 import SideProfileSkeleton from '@/components/core/skeletons/side-profile-skeleton'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
+import { Locale } from '@/i18n.config'
 
 const ProfileSidePanel = ({
     candidate,
-    dictionary,
     mobile,
 }: {
     candidate: TCandidate
-    dictionary: TDictionary
     mobile?: boolean
 }) => {
+    const { dictionary, language } = useDictionaryStore()
     const copyToClipboard = async (text: string) => {
         try {
             await navigator.clipboard.writeText(text)
@@ -71,7 +71,7 @@ const ProfileSidePanel = ({
             )}
         >
             <div className="flex w-full flex-col items-center justify-center border-b p-4">
-                <div className="mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-lg border-2 border-primary-500 text-2xl font-bold text-primary-500 ring-4 ring-primary-500/20 lg:bg-background">
+                <div className="mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-full border-2 border-primary-500 text-2xl font-bold text-primary-500 ring-4 ring-primary-500/20 lg:bg-background">
                     {getUserInitials(
                         candidate?.first_name,
                         candidate?.last_name
@@ -80,12 +80,6 @@ const ProfileSidePanel = ({
                 <h2 className="text-base font-semibold">{`${candidate.first_name} ${candidate.last_name}`}</h2>
                 <div className="mt-1 flex items-center gap-2">
                     <p className="text-xs font-semibold text-muted-foreground">
-                        Age:
-                    </p>
-                    <span className="flex h-6 w-6 items-center justify-center rounded-sm border bg-background p-1 text-xs font-medium">
-                        {candidate.age}
-                    </span>
-                    <p className="text-xs font-semibold text-muted-foreground">
                         Status:
                     </p>
                     <span>
@@ -93,7 +87,7 @@ const ProfileSidePanel = ({
                             candidate.status_id,
                             getTranslatedCandidateStatus(
                                 candidate.status_id,
-                                dictionary
+                                language as Locale
                             )
                         )}
                     </span>
@@ -114,7 +108,7 @@ const ProfileSidePanel = ({
                                     Phone
                                 </p>
                                 <p className="max-w-[240px] truncate">
-                                    {candidate.phone}
+                                    {candidate?.phone}
                                 </p>
                             </div>
                             <TooltipProvider>
@@ -139,7 +133,7 @@ const ProfileSidePanel = ({
                                     Email
                                 </p>
                                 <p className="max-w-[240px] truncate">
-                                    {candidate.email}
+                                    {candidate?.email}
                                 </p>
                             </div>
                             <TooltipProvider>
@@ -162,18 +156,23 @@ const ProfileSidePanel = ({
                             <p className="text-xs text-muted-foreground">
                                 City
                             </p>
-                            <p>{candidate.city}</p>
+                            <p>{candidate?.city}</p>
                         </li>
-                        <li className="flex flex-col">
-                            <p className="text-xs text-muted-foreground">
-                                State
-                            </p>
-                            <p>{candidate.state}</p>
+                        <li className="flex items-center justify-between">
+                            <div>
+                                <p className="text-xs text-muted-foreground">
+                                    State
+                                </p>
+                                <p>{candidate?.state}</p>
+                            </div>
+                            <div>
+                                <p className="text-xs text-muted-foreground">
+                                    Zip
+                                </p>
+                                <p>{candidate?.zip}</p>
+                            </div>
                         </li>
-                        <li className="flex flex-col">
-                            <p className="text-xs text-muted-foreground">Zip</p>
-                            <p>{candidate.zip}</p>
-                        </li>
+                        <li className="flex flex-col"></li>
                     </ul>
                 </div>
                 <div className="w-full md:w-6/12 lg:w-full">
@@ -188,47 +187,65 @@ const ProfileSidePanel = ({
                             <p className="text-xs text-muted-foreground">
                                 Location
                             </p>
-                            <p>{candidate.location.name}</p>
+                            <p>{candidate?.location?.name || 'NA'}</p>
                         </li>
                         <li className="flex flex-col">
                             <p className="text-xs text-muted-foreground">
-                                Interview date
+                                Position
                             </p>
-                            <p>
-                                {renderLocaleDate(
-                                    candidate.interview_date,
-                                    dictionary,
-                                    false,
-                                    true
-                                )}
-                            </p>
+                            <p>{candidate?.job_position?.name || 'NA'}</p>
                         </li>
                         <li className="flex flex-col">
                             <p className="text-xs text-muted-foreground">
-                                Enrollment start
+                                Job type
                             </p>
-                            <p>
-                                {renderLocaleDate(
-                                    candidate.enrollment_start,
-                                    dictionary,
-                                    false,
-                                    true
-                                ) || 'NA'}
-                            </p>
+                            <p>{candidate?.job_position?.job_type || 'NA'}</p>
                         </li>
-                        <li className="flex flex-col">
-                            <p className="text-xs text-muted-foreground">
-                                Enrollment end
-                            </p>
-                            <p>
-                                {renderLocaleDate(
-                                    candidate.enrollment_end,
-                                    dictionary,
-                                    false,
-                                    true
-                                ) || 'NA'}
-                            </p>
-                        </li>
+                        {candidate.interview_date ? (
+                            <li className="flex flex-col">
+                                <p className="text-xs text-muted-foreground">
+                                    Interview date
+                                </p>
+                                <p>
+                                    {renderLocaleDate(
+                                        candidate.interview_date,
+                                        dictionary,
+                                        false,
+                                        true
+                                    )}
+                                </p>
+                            </li>
+                        ) : null}
+                        {candidate.enrollment_start ? (
+                            <li className="flex flex-col">
+                                <p className="text-xs text-muted-foreground">
+                                    Enrollment start
+                                </p>
+                                <p>
+                                    {renderLocaleDate(
+                                        candidate.enrollment_start,
+                                        dictionary,
+                                        false,
+                                        true
+                                    ) || 'NA'}
+                                </p>
+                            </li>
+                        ) : null}
+                        {candidate.enrollment_end ? (
+                            <li className="flex flex-col">
+                                <p className="text-xs text-muted-foreground">
+                                    Enrollment end
+                                </p>
+                                <p>
+                                    {renderLocaleDate(
+                                        candidate.enrollment_end,
+                                        dictionary,
+                                        false,
+                                        true
+                                    ) || 'NA'}
+                                </p>
+                            </li>
+                        ) : null}
                     </ul>
                 </div>
             </div>

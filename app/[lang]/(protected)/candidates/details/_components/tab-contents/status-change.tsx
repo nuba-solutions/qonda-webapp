@@ -5,8 +5,10 @@ import { Separator } from '@/components/ui/separator'
 import ChangeCandidateStatusForm from '../../../_components/forms/change-status-form'
 import { HiArrowRight, HiBookmark } from 'react-icons/hi2'
 import { company } from '@/qonda.config'
+import { useDictionaryStore } from '@/stores/core/dictionary-store'
 
 const TabContentStatusChange = ({ candidate }: { candidate: TCandidate }) => {
+    const { language } = useDictionaryStore()
     return (
         <TabsContent value="status_change" className="mt-0 p-4">
             <div className="flex items-center justify-between">
@@ -34,7 +36,7 @@ const TabContentStatusChange = ({ candidate }: { candidate: TCandidate }) => {
                     </p>
                 </div>
             </div>
-            <div className="mt-4 grid grid-cols-1 gap-4 xl:grid-cols-2">
+            <div className="mt-4 grid grid-cols-1 items-start gap-4 xl:grid-cols-2">
                 <div className="rounded-md border p-4">
                     <p className="font-semibold">New status</p>
                     <p className="text-xs text-muted-foreground">
@@ -54,7 +56,7 @@ const TabContentStatusChange = ({ candidate }: { candidate: TCandidate }) => {
                         {company.company_settings.candidates_rules.description}
                     </p>
                     <Separator className="my-4" />
-                    <div className="space-y-4">
+                    <div className="grid grid-cols-1 gap-y-4 md:grid-cols-2">
                         <div>
                             <p className="font-semibold">New Candidates</p>
                             <ul>
@@ -65,7 +67,10 @@ const TabContentStatusChange = ({ candidate }: { candidate: TCandidate }) => {
                                             className="mt-1 flex items-center gap-2 text-muted-foreground"
                                         >
                                             <HiArrowRight className="text-sm text-primary-500" />
-                                            {status.en}
+                                            {language === 'es' ||
+                                            language === 'es-MX'
+                                                ? status.es
+                                                : status.en}
                                         </li>
                                     )
                                 )}
@@ -81,7 +86,10 @@ const TabContentStatusChange = ({ candidate }: { candidate: TCandidate }) => {
                                             className="mt-1 flex items-center gap-2 text-muted-foreground"
                                         >
                                             <HiArrowRight className="text-sm text-primary-500" />
-                                            {status.en}
+                                            {language === 'es' ||
+                                            language === 'es-MX'
+                                                ? status.es
+                                                : status.en}
                                         </li>
                                     )
                                 )}
@@ -97,7 +105,10 @@ const TabContentStatusChange = ({ candidate }: { candidate: TCandidate }) => {
                                             className="mt-1 flex items-center gap-2 text-muted-foreground"
                                         >
                                             <HiArrowRight className="text-sm text-primary-500" />
-                                            {status.en}
+                                            {language === 'es' ||
+                                            language === 'es-MX'
+                                                ? status.es
+                                                : status.en}
                                         </li>
                                     )
                                 )}

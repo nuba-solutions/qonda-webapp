@@ -56,14 +56,14 @@ const ChangeCandidateStatusForm = ({
         resolver: zodResolver(getChangeCandidateStatusFormSchema()),
         defaultValues: {
             id: candidate?.id,
-            status_id: '',
+            status_id: candidate?.status_id,
         },
     })
 
     const onSubmit = async (values: TChangeCandidateStatusFormSchema) => {
         setIsLoading(true)
 
-        const response = null
+        const response = null //!TODO: change status
 
         if (!response) {
             setIsLoading(false)
@@ -130,7 +130,7 @@ const ChangeCandidateStatusForm = ({
                     <div className="grid grid-cols-1">
                         <FormField
                             control={manageCandidateForm.control}
-                            name="status"
+                            name="status_id"
                             render={({ field }) => (
                                 <FormItem className="relative w-full">
                                     <FormLabel>
@@ -144,6 +144,7 @@ const ChangeCandidateStatusForm = ({
                                         disabled={
                                             isLoading || !isAgreementChecked
                                         }
+                                        defaultValue={String(field.value)}
                                     >
                                         <FormControl>
                                             <SelectTrigger
@@ -181,7 +182,8 @@ const ChangeCandidateStatusForm = ({
                                                         'in_process'
                                                     ]
                                                 } */}
-                                                        {language === 'es'
+                                                        {language === 'es' ||
+                                                        language === 'es-ES'
                                                             ? status.es
                                                             : status.en}
                                                     </SelectItem>

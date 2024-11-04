@@ -1,34 +1,20 @@
 'use server'
 
 import { convertFilesToBase64 } from '@/lib/files'
+import { company } from '@/qonda.config'
 import { TDocument } from '@/types/core/document'
 import { TCandidate } from '@/types/pages/candidates/candidate'
 import axios from 'axios'
 
-export const getCandidatesList = async () => {
-    const response = await axios
-        .get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
-        .then(async (res) => {
-            if (res.status === 200) {
-                return res.data.data
-            }
-            return null
-        })
-        .catch((error) => {
-            console.log(error)
-            return null
-        })
-
-    return response
-}
-
-export const getCandidatesListByStatus = async (statuses: number[]) => {
+export const getEmployeesList = async () => {
     const response = await axios
         .get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/mock/candidates.json`)
         .then(async (res) => {
             if (res.status === 200) {
                 return res.data.data.filter((cdt: TCandidate) =>
-                    statuses.includes(cdt.status_id)
+                    company.company_settings.candidates_rules.statuses.employees.includes(
+                        cdt.status_id
+                    )
                 )
             }
             return null

@@ -10,6 +10,7 @@ import TabsSectionSkeleton from '@/components/core/skeletons/tabs-section-skelet
 import TabContentDocuments from '../tab-contents/documents'
 import { useCandidateStore } from '@/stores/pages/candidates/candidate-store'
 import TabContentStatusChange from '../tab-contents/status-change'
+import TabContentScheduler from '../tab-contents/scheduler'
 
 const TabsSection = ({
     candidate,
@@ -70,12 +71,20 @@ const TabsSection = ({
                 >
                     Status change
                 </TabsTrigger>
+                <TabsTrigger
+                    onClick={() => updateSelectedTab('scheduler')}
+                    value="scheduler"
+                    className="h-full rounded-none border-y border-transparent px-4 font-semibold uppercase leading-[normal] data-[state=active]:border-b-primary-500 data-[state=active]:text-primary data-[state=active]:shadow-none lg:px-6"
+                >
+                    Scheduler
+                </TabsTrigger>
             </TabsList>
             <TabContentConversation candidate={candidate} />
-            <TabContentProfile candidate={candidate} dictionary={dictionary} />
+            <TabContentProfile candidate={candidate} />
             <TabContentEdit candidate={candidate} />
             <TabContentDocuments candidate={candidate} />
             <TabContentStatusChange candidate={candidate} />
+            <TabContentScheduler candidate={candidate} />
         </Tabs>
     )
 }

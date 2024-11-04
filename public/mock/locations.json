@@ -7,7 +7,10 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "phone": "915 890-9090"
+            "phone": "915 890-9090",
+            "job_positions": [1, 2],
+            "created_date": null,
+            "updated_date": null
         },
         {
             "id": 2,
@@ -16,7 +19,10 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "phone": "915 890-9090"
+            "phone": "915 890-9090",
+            "job_positions": [1],
+            "created_date": null,
+            "updated_date": null
         },
         {
             "id": 3,
@@ -25,7 +31,10 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "phone": "915 890-9090"
+            "phone": "915 890-9090",
+            "job_positions": [],
+            "created_date": null,
+            "updated_date": null
         },
         {
             "id": 4,
@@ -34,7 +43,10 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "phone": "915 890-9090"
+            "phone": "915 890-9090",
+            "job_positions": [],
+            "created_date": null,
+            "updated_date": null
         },
         {
             "id": 5,
@@ -43,7 +55,10 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "phone": "915 890-9090"
+            "phone": "915 890-9090",
+            "job_positions": [],
+            "created_date": null,
+            "updated_date": null
         }
     ]
 }

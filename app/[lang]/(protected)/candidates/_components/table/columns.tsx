@@ -1,17 +1,25 @@
-import { ColumnDef } from '@tanstack/react-table'
+import { Column, ColumnDef, Row } from '@tanstack/react-table'
 import { CaretSortIcon } from '@radix-ui/react-icons'
 import { TDictionary } from '@/types/core/dictionary'
 import { Locale } from '@/i18n.config'
 import { TCandidate } from '@/types/pages/candidates/candidate'
 import CandidatesTableActions from './actions'
 import {
+    getJobPositionName,
+    getLocationName,
     getTranslatedCandidateStatus,
     renderCandidateStatus,
+    renderLocaleDate,
 } from '@/helpers/table'
+import { TLocation } from '@/types/core/location'
+import { TJobPosition } from '@/types/core/position'
 
 export const getCandidatesTableColumnsDefinition = (
     dictionary: TDictionary,
-    lang: Locale
+    lang: Locale,
+    origin: 'new-applicants' | 'employees' | 'former-employees',
+    locationsList: TLocation[],
+    jobPositionsList: TJobPosition[]
 ) => {
     const tableColumns: ColumnDef<TCandidate>[] = [
         {
@@ -134,7 +142,8 @@ export const getCandidatesTableColumnsDefinition = (
         },
         {
             accessorKey: 'location_id',
-            accessorFn: (candidate) => candidate.location.name || '',
+            accessorFn: (candidate) =>
+                getLocationName(candidate.location_id, locationsList),
             header: ({ column }) => {
                 return (
                     <span
@@ -152,9 +161,29 @@ export const getCandidatesTableColumnsDefinition = (
             cell: ({ row }) => <div>{row.getValue('location_id')}</div>,
         },
         {
+            accessorKey: 'job_position_id',
+            accessorFn: (candidate) =>
+                getJobPositionName(candidate.job_position_id, jobPositionsList),
+            header: ({ column }) => {
+                return (
+                    <span
+                        className="flex h-10 cursor-pointer items-center gap-2 font-semibold"
+                        onClick={() =>
+                            column.toggleSorting(column.getIsSorted() === 'asc')
+                        }
+                    >
+                        {/* {dictionary?.pages?.candidates?.tables?.headers['job_position_id']} */}
+                        Job Position
+                        <CaretSortIcon className="h-4 w-4" />
+                    </span>
+                )
+            },
+            cell: ({ row }) => <div>{row.getValue('job_position_id')}</div>,
+        },
+        {
             accessorKey: 'status',
             accessorFn: (candidate) =>
-                getTranslatedCandidateStatus(candidate.status_id, dictionary),
+                getTranslatedCandidateStatus(candidate.status_id, lang),
             header: ({ column }) => {
                 return (
                     <span
@@ -178,57 +207,36 @@ export const getCandidatesTableColumnsDefinition = (
                     row.getValue('status')
                 ),
         },
-        // {
-        //     accessorKey: 'interview_date',
-        //     accessorFn: (candidate) =>
-        //         renderLocaleDate(candidate.interview_date, lang),
-        //     header: ({ column }) => {
-        //         return (
-        //             <span
-        //                 className="flex h-10 cursor-pointer items-center gap-2 font-semibold"
-        //                 onClick={() =>
-        //                     column.toggleSorting(column.getIsSorted() === 'asc')
-        //                 }
-        //             >
-        //                 {
-        //                     dictionary?.pages?.candidates?.tables?.headers[
-        //                         'interview_date'
-        //                     ]
-        //                 }
-        //                 <CaretSortIcon className="h-4 w-4" />
-        //             </span>
-        //         )
-        //     },
-        //     cell: ({ row }) => <div>{row.getValue('interview_date')}</div>,
-        // },
-        // {
-        //     accessorKey: 'enrollment_date',
-        //     accessorFn: (candidate) =>
-        //         renderLocaleDate(
-        //             (candidate.enrollment_start as Date) || '',
-        //             lang
-        //         ),
-        //     header: ({ column }) => {
-        //         return (
-        //             <span
-        //                 className="flex h-10 cursor-pointer items-center gap-2 font-semibold"
-        //                 onClick={() =>
-        //                     column.toggleSorting(column.getIsSorted() === 'asc')
-        //                 }
-        //             >
-        //                 {
-        //                     dictionary?.pages?.candidates?.tables?.headers[
-        //                         'enrollment_date'
-        //                     ]
-        //                 }
-        //                 <CaretSortIcon className="h-4 w-4" />
-        //             </span>
-        //         )
-        //     },
-        //     cell: ({ row }) => (
-        //         <div className="ml-auto">{row.getValue('enrollment_date')}</div>
-        //     ),
-        // },
+        ...(origin === 'employees'
+            ? [
+                  {
+                      accessorKey: 'interview_date',
+                      accessorFn: (candidate: TCandidate) =>
+                          renderLocaleDate(candidate.interview_date, lang),
+                      header: ({ column }: { column: Column<TCandidate> }) => {
+                          return (
+                              <span
+                                  className="flex h-10 cursor-pointer items-center gap-2 font-semibold"
+                                  onClick={() =>
+                                      column.toggleSorting(
+                                          column.getIsSorted() === 'asc'
+                                      )
+                                  }
+                              >
+                                  {
+                                      dictionary?.pages?.candidates?.tables
+                                          ?.headers['interview_date']
+                                  }
+                                  <CaretSortIcon className="h-4 w-4" />
+                              </span>
+                          )
+                      },
+                      cell: ({ row }: { row: Row<TCandidate> }) => (
+                          <div>{row.getValue('interview_date')}</div>
+                      ),
+                  },
+              ]
+            : []),
         {
             header: () => {
                 return (

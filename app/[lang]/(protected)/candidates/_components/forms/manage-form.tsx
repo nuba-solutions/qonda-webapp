@@ -12,7 +12,7 @@ import {
     FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AiOutlineLoading } from 'react-icons/ai'
 import { useRouter } from 'next/navigation'
 import { useDictionaryStore } from '@/stores/core/dictionary-store'
@@ -40,30 +40,38 @@ import {
 import { toast } from '@/hooks/use-toast'
 import DatePicker from '@/components/core/date-pickers/date-picker'
 import { TLocation } from '@/types/core/location'
-import { getLocationsList } from '@/actions/core/locations'
-import { CANDIDATE_STATUSES } from '@/constants/statuses/statuses'
 import { DrawerClose } from '@/components/ui/drawer'
+import { TJobPosition } from '@/types/core/position'
 
 const ManageCandidateForm = ({
     isEdit,
     candidate,
     candidateId,
+    jobPositionsList,
+    locationsList,
 }: {
     isEdit: boolean
     candidate?: TCandidate
     candidateId?: number
+    jobPositionsList: TJobPosition[]
+    locationsList: TLocation[]
 }) => {
     const { dictionary, language } = useDictionaryStore()
     const queryClient = useQueryClient()
 
-    const { data: locationsList } = useQuery<TLocation[]>({
-        queryKey: ['locations'],
-        queryFn: () => getLocationsList(),
-        refetchOnWindowFocus: false,
-    })
-
     const router = useRouter()
+
     const [isLoading, setIsLoading] = useState(false)
+
+    const [filteredJobPositionsList, setFilteredJobPositionsList] = useState<
+        TJobPosition[]
+    >([])
+
+    const [selectedJobPosition, setSelectedJobPosition] = useState<string>(
+        isEdit
+            ? String(candidate?.job_position_id) || ''
+            : (candidate?.job_position_id as string) || ''
+    )
 
     const manageCandidateForm = useForm<TManageCandidateFormSchema>({
         resolver: zodResolver(getManageCandidateFormSchema(isEdit)),
@@ -79,12 +87,31 @@ const ManageCandidateForm = ({
             state: isEdit ? candidate?.state : '',
             zip: isEdit ? candidate?.zip : '',
             location_id: isEdit ? candidate?.location_id : '',
-            status_id: isEdit ? String(candidate?.status_id) : '',
-            interview_date: isEdit ? candidate?.interview_date || '' : '',
-            enrollment_start: isEdit ? candidate?.enrollment_start || '' : '',
-            enrollment_end: isEdit ? candidate?.enrollment_end || '' : '',
+            job_position_id: '',
         },
     })
+
+    const { setValue } = manageCandidateForm
+
+    const handleFilterJobPositionsByLocation = (locationId: number) => {
+        const filteredPositions = jobPositionsList?.filter(
+            (jp) => jp.location_id === locationId
+        )
+        setFilteredJobPositionsList(filteredPositions as TJobPosition[])
+        setSelectedJobPosition('')
+    }
+
+    useEffect(() => {
+        setFilteredJobPositionsList(
+            jobPositionsList?.filter(
+                (jp) => jp.location_id === candidate?.location_id
+            ) as TJobPosition[]
+        )
+    }, [])
+
+    useEffect(() => {
+        setValue('job_position_id', Number(selectedJobPosition))
+    }, [selectedJobPosition])
 
     const onSubmit = async (values: TManageCandidateFormSchema) => {
         setIsLoading(true)
@@ -449,7 +476,12 @@ const ManageCandidateForm = ({
                                         Location
                                     </FormLabel>
                                     <Select
-                                        onValueChange={field.onChange}
+                                        onValueChange={(value) => {
+                                            field.onChange(value)
+                                            handleFilterJobPositionsByLocation(
+                                                Number(value)
+                                            )
+                                        }}
                                         disabled={
                                             isLoading || !locationsList?.length
                                         }
@@ -502,23 +534,25 @@ const ManageCandidateForm = ({
                         />
                         <FormField
                             control={manageCandidateForm.control}
-                            name="status"
+                            name="job_position_id"
                             render={({ field }) => (
                                 <FormItem className="relative w-full">
                                     <FormLabel>
-                                        {
+                                        {/* {
                                             dictionary?.pages?.candidates?.forms
                                                 ?.labels['status']
-                                        }
+                                        } */}
+                                        Job Position
                                     </FormLabel>
                                     <Select
-                                        onValueChange={field.onChange}
-                                        disabled={isLoading}
-                                        defaultValue={
-                                            isEdit
-                                                ? String(candidate?.status_id)
-                                                : ''
+                                        onValueChange={(value) =>
+                                            setSelectedJobPosition(value)
                                         }
+                                        disabled={
+                                            isLoading ||
+                                            !filteredJobPositionsList.length
+                                        }
+                                        value={selectedJobPosition}
                                     >
                                         <FormControl>
                                             <SelectTrigger
@@ -542,24 +576,19 @@ const ManageCandidateForm = ({
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
-                                            {CANDIDATE_STATUSES.map(
-                                                (status) => (
-                                                    <SelectItem
-                                                        value={String(
-                                                            status.id
-                                                        )}
-                                                        key={status.id}
-                                                    >
-                                                        {/* {
-                                                    dictionary?.core?.statuses
-                                                        ?.candidates[
-                                                        'in_process'
-                                                    ]
-                                                } */}
-                                                        {status.name}
-                                                    </SelectItem>
-                                                )
-                                            )}
+                                            {filteredJobPositionsList &&
+                                                filteredJobPositionsList.map(
+                                                    (position) => (
+                                                        <SelectItem
+                                                            key={position.id}
+                                                            value={String(
+                                                                position.id
+                                                            )}
+                                                        >
+                                                            {position.name}
+                                                        </SelectItem>
+                                                    )
+                                                )}
                                         </SelectContent>
                                     </Select>
                                     <FormMessage />
@@ -567,7 +596,7 @@ const ManageCandidateForm = ({
                             )}
                         />
                     </div>
-                    <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 lg:flex-row lg:items-start xl:grid-cols-3">
+                    {/* <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 lg:flex-row lg:items-start xl:grid-cols-3">
                         <FormField
                             control={manageCandidateForm.control}
                             name="interview_date"
@@ -595,10 +624,6 @@ const ManageCandidateForm = ({
                             render={({ field }) => (
                                 <FormItem className="relative w-full">
                                     <FormLabel>
-                                        {/* {
-                                            dictionary?.pages?.candidates?.forms
-                                                ?.labels['enrollment_date']
-                                        } */}
                                         Enrollment start
                                     </FormLabel>
                                     <FormControl>
@@ -617,10 +642,6 @@ const ManageCandidateForm = ({
                             render={({ field }) => (
                                 <FormItem className="relative w-full">
                                     <FormLabel>
-                                        {/* {
-                                            dictionary?.pages?.candidates?.forms
-                                                ?.labels['enrollment_date']
-                                        } */}
                                         Enrollment end
                                     </FormLabel>
                                     <FormControl>
@@ -633,7 +654,7 @@ const ManageCandidateForm = ({
                                 </FormItem>
                             )}
                         />
-                    </div>
+                    </div> */}
                 </div>
 
                 <Separator />
@@ -647,7 +668,11 @@ const ManageCandidateForm = ({
                             {dictionary?.core?.buttons['cancel']}
                         </DrawerClose>
                     ) : null}
-                    <Button type="submit" disabled={isLoading}>
+                    <Button
+                        type="submit"
+                        disabled={isLoading}
+                        className="ml-auto w-full md:w-fit"
+                    >
                         {isLoading ? (
                             <AiOutlineLoading className="animate-spin text-lg" />
                         ) : isEdit ? (

@@ -12,8 +12,22 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-    title: 'Qonda | Recruitment made simple',
+    title: company.company_meta_title,
     description: 'The most advanced recruitment software powered by AI',
+    icons: {
+        icon: [
+            {
+                media: '(prefers-color-scheme: light)',
+                url: company.company_favicon_url,
+                href: company.company_favicon_url,
+            },
+            {
+                media: '(prefers-color-scheme: dark)',
+                url: company.company_favicon_url,
+                href: company.company_favicon_url,
+            },
+        ],
+    },
 }
 
 export default async function RootLayout({

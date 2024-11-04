@@ -1,24 +1,12 @@
-import {
-    dehydrate,
-    HydrationBoundary,
-    QueryClient,
-} from '@tanstack/react-query'
-import CandidatesTableSection from './_components/sections/table-section'
-import { getCandidatesList } from '@/actions/pages/candidates/candidates'
+import { Locale } from '@/i18n.config'
+import { redirect } from 'next/navigation'
 
-const CandidatesPage = async () => {
-    const queryClient = new QueryClient()
-
-    await queryClient.prefetchQuery({
-        queryKey: ['candidates'],
-        queryFn: getCandidatesList,
-    })
-
-    return (
-        <HydrationBoundary state={dehydrate(queryClient)}>
-            <CandidatesTableSection />
-        </HydrationBoundary>
-    )
+const CandidatesPage = async ({
+    params: { lang },
+}: {
+    params: { lang: Locale }
+}) => {
+    redirect(`/${lang}/candidates/new-applicants`)
 }
 
 export default CandidatesPage

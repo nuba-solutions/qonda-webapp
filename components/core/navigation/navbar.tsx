@@ -8,17 +8,17 @@ import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { company } from '@/qonda.config'
 
 const Navbar = () => {
-    const { dictionary } = useDictionaryStore()
+    const { dictionary, language } = useDictionaryStore()
 
     return (
         <nav className="hidden h-full flex-col font-medium md:flex-row md:items-center lg:flex">
             <Link
-                href="#"
+                href={`/${language}/dashboard`}
                 className="flex h-full items-center justify-center bg-primary pl-4 pr-6 font-semibold md:text-base 2xl:pl-5 2xl:pr-8 3xl:pl-6 3xl:pr-9"
             >
                 <Image
                     src={company.company_logo_white_url}
-                    alt="Qonda logo"
+                    alt="Company logo"
                     width={120}
                     height={80}
                 />
@@ -26,7 +26,7 @@ const Navbar = () => {
             <NavLink
                 name={dictionary?.core?.navigation?.links?.dashboard['name']}
                 text={dictionary?.core?.navigation?.links?.dashboard['text']}
-                path="/dashboard"
+                path={`/${language}/dashboard`}
             />
             <NavLink
                 name={dictionary?.core?.navigation?.links?.hr_funnel['name']}
@@ -41,7 +41,7 @@ const Navbar = () => {
                         //     'text'
                         // ],
                         text: 'New applicants',
-                        path: '/candidates',
+                        path: `/${language}/candidates/applicants`,
                     },
                     {
                         // name: dictionary?.core?.navigation?.links?.staff[
@@ -52,7 +52,7 @@ const Navbar = () => {
                         // ],
                         name: 'Employees',
                         text: 'Hired personnel',
-                        path: '/employees',
+                        path: `/${language}/candidates/employees`,
                     },
                     {
                         // name: dictionary?.core?.navigation?.links
@@ -61,7 +61,7 @@ const Navbar = () => {
                         //     ?.former_employees['text'],
                         name: 'Former Employees',
                         text: 'No longer working',
-                        path: '/former-employees',
+                        path: `/${language}/candidates/former-employees`,
                     },
                 ]}
             />
@@ -70,7 +70,7 @@ const Navbar = () => {
                 // text={dictionary?.core?.navigation?.links?.units['text']}
                 name="Locations"
                 text="Manage units"
-                path="/locations"
+                path={`/${language}/locations`}
             />
             {/* <NavLink
                 name={dictionary?.core?.navigation?.links?.analytics['name']}
@@ -80,7 +80,7 @@ const Navbar = () => {
             <NavLink
                 name={dictionary?.core?.navigation?.links?.users['name']}
                 text={dictionary?.core?.navigation?.links?.users['text']}
-                path="/users"
+                path={`/${language}/users`}
             />
         </nav>
     )

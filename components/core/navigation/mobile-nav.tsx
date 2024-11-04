@@ -8,9 +8,11 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import MobileNavLink from './mobile-nav-link'
 import { useDictionaryStore } from '@/stores/core/dictionary-store'
+import { company } from '@/qonda.config'
+import { Separator } from '@/components/ui/separator'
 
 const MobileNav = () => {
-    const { dictionary } = useDictionaryStore()
+    const { dictionary, language } = useDictionaryStore()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
@@ -27,7 +29,7 @@ const MobileNav = () => {
                     </Button>
                 </SheetTrigger>
                 <Image
-                    src={'/assets/qonda-logo.svg'}
+                    src={company.company_logo_url}
                     width={100}
                     height={60}
                     alt="Qonda logo"
@@ -38,16 +40,17 @@ const MobileNav = () => {
                 <nav className="grid gap-y-6">
                     <Link
                         onClick={() => setIsMenuOpen(false)}
-                        href="/dashboard"
-                        className="flex h-12 w-12 items-center justify-center rounded-lg border bg-accent"
+                        href={`/${language}/dashboard`}
+                        // className="flex h-12 w-12 items-center justify-center rounded-lg border bg-accent"
                     >
                         <Image
-                            src={'/assets/qonda-symbol.svg'}
-                            width={35}
-                            height={35}
+                            src={company.company_logo_url}
+                            width={100}
+                            height={100}
                             alt="Qonda logo"
                         />
                     </Link>
+                    <Separator />
                     <MobileNavLink
                         name={
                             dictionary?.core?.navigation?.links?.dashboard[
@@ -59,7 +62,7 @@ const MobileNav = () => {
                                 'text'
                             ]
                         }
-                        path="/dashboard"
+                        path={`/${language}/dashboard`}
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
@@ -68,22 +71,25 @@ const MobileNav = () => {
                                 'name'
                             ]
                         }
-                        text={
-                            dictionary?.core?.navigation?.links?.candidates[
-                                'text'
-                            ]
-                        }
-                        path="/candidates"
+                        // text={
+                        //     dictionary?.core?.navigation?.links?.candidates[
+                        //         'text'
+                        //     ]
+                        // }
+                        text="New applicants"
+                        path={`/${language}/candidates/applicants`}
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
-                        name={
-                            dictionary?.core?.navigation?.links?.staff['name']
-                        }
-                        text={
-                            dictionary?.core?.navigation?.links?.staff['text']
-                        }
-                        path="/staff"
+                        // name={
+                        //     dictionary?.core?.navigation?.links?.staff['name']
+                        // }
+                        // text={
+                        //     dictionary?.core?.navigation?.links?.staff['text']
+                        // }
+                        name="Employees"
+                        text="Hired personnel"
+                        path={`/${language}/candidates/employees`}
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
@@ -91,24 +97,27 @@ const MobileNav = () => {
                             dictionary?.core?.navigation?.links
                                 ?.former_employees['name']
                         }
-                        text={
-                            dictionary?.core?.navigation?.links
-                                ?.former_employees['text']
-                        }
-                        path="/former-employees"
+                        // text={
+                        //     dictionary?.core?.navigation?.links
+                        //         ?.former_employees['text']
+                        // }
+                        text="No longer working"
+                        path={`/${language}/candidates/former-employees`}
                         setIsMenuOpen={setIsMenuOpen}
                     />
                     <MobileNavLink
-                        name={
-                            dictionary?.core?.navigation?.links?.units['name']
-                        }
-                        text={
-                            dictionary?.core?.navigation?.links?.units['text']
-                        }
-                        path="/units"
+                        // name={
+                        //     dictionary?.core?.navigation?.links?.units['name']
+                        // }
+                        // text={
+                        //     dictionary?.core?.navigation?.links?.units['text']
+                        // }
+                        name="Locations"
+                        text="Manage units"
+                        path={`/${language}/locations`}
                         setIsMenuOpen={setIsMenuOpen}
                     />
-                    <MobileNavLink
+                    {/* <MobileNavLink
                         name={
                             dictionary?.core?.navigation?.links?.analytics[
                                 'name'
@@ -121,7 +130,7 @@ const MobileNav = () => {
                         }
                         path="/analytics"
                         setIsMenuOpen={setIsMenuOpen}
-                    />
+                    /> */}
                     <MobileNavLink
                         name={
                             dictionary?.core?.navigation?.links?.users['name']
@@ -129,7 +138,7 @@ const MobileNav = () => {
                         text={
                             dictionary?.core?.navigation?.links?.users['text']
                         }
-                        path="/users"
+                        path={`/${language}/users`}
                         setIsMenuOpen={setIsMenuOpen}
                     />
                 </nav>

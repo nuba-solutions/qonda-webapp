@@ -37,7 +37,7 @@ const LoginPage = async ({
             </div>
             <div className="flex h-[calc(100vh-30px)] items-center justify-center py-12">
                 <div className="mx-auto grid w-[350px] gap-6">
-                    <div className="grid gap-2">
+                    <div className="grid gap-2 text-center">
                         <Image
                             src={company.company_logo_url}
                             alt="logo"

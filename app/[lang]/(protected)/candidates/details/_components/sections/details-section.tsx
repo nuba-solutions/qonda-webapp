@@ -11,14 +11,18 @@ import NoDataMessage from '@/components/core/messages/no-data-message'
 import TableLoader from '@/components/core/loaders/table-loader'
 import ProfileSidePanel from '../panel/profile-side-panel'
 import TabsSection from './tabs-section'
-import { HiArrowLeft } from 'react-icons/hi2'
+import { HiArrowLeft, HiTrash } from 'react-icons/hi2'
 import DeleteCandidateDialog from '../../../_components/dialogs/delete-dialog'
 import { TCandidate } from '@/types/pages/candidates/candidate'
 import { useState } from 'react'
+import { useWindowSize } from '@/hooks/useWindowSize'
+import { useCandidateStore } from '@/stores/pages/candidates/candidate-store'
 
 const CandidateDetailsSection = ({ candidateId }: { candidateId: number }) => {
     const { dictionary, language } = useDictionaryStore()
     const [isOpen, setIsOpen] = useState(false)
+    const { width } = useWindowSize()
+    const { origin_status } = useCandidateStore()
 
     const { isPending, isError, data, isFetching } = useQuery<TCandidate>({
         queryKey: ['candidate', candidateId],
@@ -45,7 +49,7 @@ const CandidateDetailsSection = ({ candidateId }: { candidateId: number }) => {
             >
                 <div className="flex items-center gap-2">
                     <Link
-                        href={`/${language}/candidates`}
+                        href={`/${language}/${origin_status === 'new-applicants' ? 'candidates/applicants' : origin_status === 'employees' ? 'candidates/employees' : 'candidates/former-employees'}`}
                         className={cn(
                             buttonVariants({
                                 variant: 'outline',
@@ -62,21 +66,28 @@ const CandidateDetailsSection = ({ candidateId }: { candidateId: number }) => {
                             isOpen={isOpen}
                             setIsOpen={setIsOpen}
                         />
-                        <Button
-                            onClick={() => setIsOpen(true)}
-                            variant="destructive"
-                        >
-                            Delete candidate
-                        </Button>
+                        {width && width < 640 ? (
+                            <Button
+                                onClick={() => setIsOpen(true)}
+                                variant="destructive"
+                                size="icon"
+                            >
+                                <HiTrash />
+                            </Button>
+                        ) : (
+                            <Button
+                                onClick={() => setIsOpen(true)}
+                                variant="destructive"
+                            >
+                                Delete candidate
+                            </Button>
+                        )}
                     </>
                 </div>
             </PageHeader>
             {data ? (
                 <div className="relative grid grid-cols-1 lg:grid-cols-[360px_1fr]">
-                    <ProfileSidePanel
-                        candidate={data}
-                        dictionary={dictionary}
-                    />
+                    <ProfileSidePanel candidate={data} />
                     <div className="relative h-full w-full">
                         <TabsSection candidate={data} dictionary={dictionary} />
                     </div>

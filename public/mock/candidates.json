@@ -17,6 +17,43 @@
                 "zip": "79912",
                 "phone": "915 890-9090"
             },
+            "job_position_id": 1,
+            "job_position": {
+                "id": 1,
+                "name": "Cook",
+                "summary": "Wingstop is seeking enthusiastic, team-oriented individuals who are passionate about preparing great food in a fast-paced environment. As a Cook at Wingstop, you’ll be at the heart of our kitchen operations, responsible for crafting delicious wings, sides, and sauces to our exacting standards. We’re looking for someone who is dedicated to delivering quality and is ready to learn and grow with us.",
+                "key_responsibilities": [
+                    "Prepare Wingstop menu items: Cook and assemble wings, fries, and other menu items according to our established recipes and specifications.",
+                    "Maintain food safety and quality: Ensure that all food is prepared safely, follows Wingstop’s quality standards, and meets health and safety guidelines.",
+                    "Operate kitchen equipment: Safely use fryers, grills, and other kitchen equipment, ensuring cleanliness and proper maintenance.",
+                    "Manage cooking times and temperatures: Monitor food items as they cook to achieve perfect doneness and taste.",
+                    "Assist with food prep: Prepare ingredients, sauces, and other items as needed to support smooth kitchen operations.",
+                    "Maintain cleanliness: Keep workstations, utensils, and kitchen areas clean and organized, adhering to Wingstop’s standards for cleanliness and sanitation.",
+                    "Support teamwork: Collaborate with team members to fulfill orders promptly, ensuring a seamless experience for customers."
+                ],
+                "qualifications": [
+                    "Experience: Previous kitchen or fast-food experience preferred but not required; we’re willing to train motivated candidates.",
+                    "Skills: Strong attention to detail, ability to work under pressure, and a commitment to food safety practices.",
+                    "Physical Requirements: Ability to stand for long periods, lift and carry heavy items, and handle high temperatures in the kitchen.",
+                    "Team Player: Positive attitude, dependability, and willingness to learn and adapt in a team-oriented environment."
+                ],
+                "benefits": [
+                    "Competitive pay and flexible scheduling",
+                    "Opportunities for growth and advancement within the Wingstop team",
+                    "Employee discounts on Wingstop products",
+                    "A dynamic, supportive, and fun work environment"
+                ],
+                "call_to_action": "If you’re passionate about food, eager to learn, and looking to be part of a great team, apply today to join Wingstop and help us serve up the best wings in town!",
+                "salary_range": "18.00 - 20.00",
+                "salary_currency": "USD",
+                "salary_period": "Hourly",
+                "job_type": "Full-time",
+                "location_id": 1,
+                "openings": 5,
+                "max_openings": 20,
+                "created_date": null,
+                "updated_date": null
+            },
             "address": "123 Mesa st",
             "city": "El Paso",
             "state": "Texas",
@@ -29,6 +66,9 @@
             "updated_date": "2024-09-01T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=1",
             "documents": [1, 2],
+            "lead_source": "LinkedIn",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,
@@ -116,7 +156,7 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "status_id": 0,
+            "status_id": 4,
             "interview_date": "2024-10-20T00:00:00.000Z",
             "enrollment_start": "2024-11-10T00:00:00.000Z",
             "enrollment_end": null,
@@ -124,6 +164,9 @@
             "updated_date": "2024-09-05T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=2",
             "documents": [],
+            "lead_source": "LinkedIn",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,
@@ -212,6 +255,9 @@
             "updated_date": "2024-08-15T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=3",
             "documents": [],
+            "lead_source": "Google",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,
@@ -292,7 +338,7 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "status_id": 0,
+            "status_id": 5,
             "interview_date": "2024-10-18T00:00:00.000Z",
             "enrollment_start": "2024-11-05T00:00:00.000Z",
             "enrollment_end": null,
@@ -300,6 +346,9 @@
             "updated_date": "2024-09-12T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=4",
             "documents": [],
+            "lead_source": "LinkedIn",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,
@@ -388,6 +437,9 @@
             "updated_date": "2024-09-20T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=5",
             "documents": [],
+            "lead_source": "Store",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,
@@ -476,6 +528,9 @@
             "updated_date": "2024-08-01T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=6",
             "documents": [],
+            "lead_source": "LinkedIn",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,
@@ -564,6 +619,9 @@
             "updated_date": "2024-09-10T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=7",
             "documents": [],
+            "lead_source": "Facebook",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,
@@ -644,7 +702,7 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "status_id": 0,
+            "status_id": 4,
             "interview_date": "2024-10-21T00:00:00.000Z",
             "enrollment_start": "2024-11-10T00:00:00.000Z",
             "enrollment_end": null,
@@ -652,6 +710,9 @@
             "updated_date": "2024-09-07T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=8",
             "documents": [],
+            "lead_source": "LinkedIn",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,
@@ -732,7 +793,7 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "status_id": 2,
+            "status_id": 3,
             "interview_date": "2024-09-15T00:00:00.000Z",
             "enrollment_start": "2024-09-30T00:00:00.000Z",
             "enrollment_end": null,
@@ -740,6 +801,9 @@
             "updated_date": "2024-08-25T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=9",
             "documents": [],
+            "lead_source": "LinkedIn",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,
@@ -820,7 +884,7 @@
             "city": "El Paso",
             "state": "Texas",
             "zip": "79912",
-            "status_id": 0,
+            "status_id": 2,
             "interview_date": "2024-09-30T00:00:00.000Z",
             "enrollment_start": "2024-09-30T00:00:00.000Z",
             "enrollment_end": null,
@@ -828,6 +892,9 @@
             "updated_date": "2024-08-25T00:00:00.000Z",
             "profile_img_url": "https://picsum.photos/200/300?random=10",
             "documents": [],
+            "lead_source": "LinkedIn",
+            "availability_start": "2024-09-01T00:00:00.000Z",
+            "availability_end": "2024-10-31T00:00:00.000Z",
             "conversation": [
                 {
                     "message_id": 1,

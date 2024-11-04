@@ -21,22 +21,10 @@ export const getManageCandidateFormSchema = (
             .number()
             .nonnegative()
             .min(1, { message: 'please select an option' }),
-        status_id: z.coerce
+        job_position_id: z.coerce
             .number()
             .nonnegative()
             .min(1, { message: 'please select an option' }),
-        interview_date: z.preprocess(
-            (value) => (value === '' || value == null ? undefined : value),
-            z.string().datetime().optional()
-        ),
-        enrollment_start: z.preprocess(
-            (value) => (value === '' || value == null ? undefined : value),
-            z.string().datetime().optional()
-        ),
-        enrollment_end: z.preprocess(
-            (value) => (value === '' || value == null ? undefined : value),
-            z.string().datetime().optional()
-        ),
     })
 
     return manageCandidateFormSchema
@@ -62,3 +50,37 @@ export const getChangeCandidateStatusFormSchema = (dictionary?: any) => {
 export type TChangeCandidateStatusFormSchema = z.infer<
     typeof changeCandidateStatusFormSchema
 >
+
+export let scheduleInterviewFormSchema: any
+
+export const getScheduleInterviewFormSchema = (dictionary?: any) => {
+    const scheduleInterviewFormSchema = z.object({
+        id: z.coerce.number(),
+        interview_date: z.preprocess(
+            (value) => (value === '' || value == null ? undefined : value),
+            z.string().datetime().optional()
+        ),
+    })
+    return scheduleInterviewFormSchema
+}
+
+export type TScheduleInterviewFormSchema = z.infer<
+    typeof scheduleInterviewFormSchema
+>
+
+/*
+
+interview_date: z.preprocess(
+    (value) => (value === '' || value == null ? undefined : value),
+    z.string().datetime().optional()
+),
+enrollment_start: z.preprocess(
+    (value) => (value === '' || value == null ? undefined : value),
+    z.string().datetime().optional()
+),
+enrollment_end: z.preprocess(
+    (value) => (value === '' || value == null ? undefined : value),
+    z.string().datetime().optional()
+),
+
+*/

@@ -1,5 +1,6 @@
 import { TFile } from '@/types/core/file'
 import { TLocation } from '@/types/core/location'
+import { TJobPosition } from '@/types/core/position'
 import { TStatus } from '@/types/core/status'
 import { string } from 'zod'
 
@@ -16,6 +17,8 @@ export type TCandidate = {
     phone: string
     location_id: TLocation.id
     location: TLocation
+    job_position_id: TJobPosition.id
+    job_position: TJobPosition
     status_id: TStatus.id
     interview_date: Date
     enrollment_start?: Date

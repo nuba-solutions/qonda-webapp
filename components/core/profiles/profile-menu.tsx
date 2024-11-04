@@ -41,10 +41,10 @@ const UserProfileMenu = () => {
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuLabel className="pb-0 text-base">
+                <DropdownMenuLabel className="pb-0">
                     Yohans Mendoza
                 </DropdownMenuLabel>
-                <p className="p-2 pt-0 text-sm text-muted-foreground">
+                <p className="p-2 pt-0 text-xs text-muted-foreground">
                     yohans.mendoza@mail.com
                 </p>
                 <DropdownMenuSeparator />

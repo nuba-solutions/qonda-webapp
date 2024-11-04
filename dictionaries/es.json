@@ -114,7 +114,7 @@
                 "add_candidate": "Agregar candidato"
             }
         },
-        "staff": {
+        "employees": {
             "headers": {
                 "main": {
                     "title": "Empleados",

@@ -1,29 +1,61 @@
 'use client'
 
-import { getCandidatesList } from '@/actions/pages/candidates/candidates'
+import { getCandidatesListByStatus } from '@/actions/pages/candidates/candidates'
 import PageHeader from '@/components/core/headers/page-header'
 import EmptyTableMessage from '@/components/core/messages/empty-table-message'
 import DataTable from '@/components/core/tables/data-table'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { Locale } from '@/i18n.config'
 import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { useQuery } from '@tanstack/react-query'
-import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getCandidatesTableColumnsDefinition } from '../table/columns'
-import { cn } from '@/lib/utils'
 import TableLoader from '@/components/core/loaders/table-loader'
 import NoDataMessage from '@/components/core/messages/no-data-message'
 import ManageCandidateDrawer from '../drawers/manage-candidate'
+import { getLocationsList } from '@/actions/core/locations'
+import { getJobPositionsList } from '@/actions/core/job_positions'
+import {
+    TCandidateOriginStatus,
+    useCandidateStore,
+} from '@/stores/pages/candidates/candidate-store'
 
-const CandidatesTableSection = () => {
+const CandidatesTableSection = ({
+    origin,
+    statuses,
+}: {
+    origin: TCandidateOriginStatus
+    statuses: number[]
+}) => {
     const { dictionary, language } = useDictionaryStore()
+    const { updateOriginStatus } = useCandidateStore()
     const [isOpen, setIsOpen] = useState(false)
+
+    useEffect(() => {
+        updateOriginStatus(origin)
+    }, [origin])
+
     const { isPending, isError, data, isFetching } = useQuery({
-        queryKey: ['candidates'],
-        queryFn: () => getCandidatesList(),
+        queryKey: ['candidates', origin],
+        queryFn: () => getCandidatesListByStatus(statuses),
         refetchOnWindowFocus: false,
     })
+
+    const { data: locationsList } = useQuery({
+        queryKey: ['locations'],
+        queryFn: () => getLocationsList(),
+        refetchOnWindowFocus: false,
+    })
+
+    const { data: jobPositionsList } = useQuery({
+        queryKey: ['job_positions'],
+        queryFn: () => getJobPositionsList(),
+        refetchOnWindowFocus: false,
+    })
+
+    if (!locationsList || !jobPositionsList) {
+        return <TableLoader />
+    }
 
     return (
         <>
@@ -31,10 +63,28 @@ const CandidatesTableSection = () => {
             <section id="candidates-section">
                 <PageHeader
                     title={
-                        dictionary?.pages?.candidates?.headers?.main['title']
+                        origin === 'new-applicants'
+                            ? dictionary?.pages?.candidates?.headers?.main[
+                                  'title'
+                              ]
+                            : origin === 'employees'
+                              ? dictionary?.pages?.employees?.headers?.main[
+                                    'title'
+                                ]
+                              : dictionary?.pages?.former_employees?.headers
+                                    ?.main['title']
                     }
                     subtitle={
-                        dictionary?.pages?.candidates?.headers?.main['subtitle']
+                        origin === 'new-applicants'
+                            ? dictionary?.pages?.candidates?.headers?.main[
+                                  'subtitle'
+                              ]
+                            : origin === 'employees'
+                              ? dictionary?.pages?.employees?.headers?.main[
+                                    'subtitle'
+                                ]
+                              : dictionary?.pages?.former_employees?.headers
+                                    ?.main['subtitle']
                     }
                     className="flex-row items-center justify-between"
                 >
@@ -58,7 +108,10 @@ const CandidatesTableSection = () => {
                                     data={data}
                                     columnDefinitions={getCandidatesTableColumnsDefinition(
                                         dictionary,
-                                        language as Locale
+                                        language as Locale,
+                                        origin,
+                                        locationsList,
+                                        jobPositionsList
                                     )}
                                     headers_dictionary={
                                         dictionary?.pages?.candidates?.tables

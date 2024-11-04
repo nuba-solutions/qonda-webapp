@@ -114,11 +114,11 @@
                 "add_candidate": "Add candidate"
             }
         },
-        "staff": {
+        "employees": {
             "headers": {
                 "main": {
-                    "title": "Staff",
-                    "subtitle": "Manage Employees"
+                    "title": "Employees",
+                    "subtitle": "Hired personnel"
                 }
             }
         },
@@ -126,7 +126,7 @@
             "headers": {
                 "main": {
                     "title": "Former employees",
-                    "subtitle": "Manage Ex Employees"
+                    "subtitle": "No longer working"
                 }
             }
         },

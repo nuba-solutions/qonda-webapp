@@ -1,0 +1,100 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Cook",
+            "summary": "Wingstop is seeking enthusiastic, team-oriented individuals who are passionate about preparing great food in a fast-paced environment. As a Cook at Wingstop, you’ll be at the heart of our kitchen operations, responsible for crafting delicious wings, sides, and sauces to our exacting standards. We’re looking for someone who is dedicated to delivering quality and is ready to learn and grow with us.",
+            "key_responsibilities": [
+                "Prepare Wingstop menu items: Cook and assemble wings, fries, and other menu items according to our established recipes and specifications.",
+                "Maintain food safety and quality: Ensure that all food is prepared safely, follows Wingstop’s quality standards, and meets health and safety guidelines.",
+                "Operate kitchen equipment: Safely use fryers, grills, and other kitchen equipment, ensuring cleanliness and proper maintenance.",
+                "Manage cooking times and temperatures: Monitor food items as they cook to achieve perfect doneness and taste.",
+                "Assist with food prep: Prepare ingredients, sauces, and other items as needed to support smooth kitchen operations.",
+                "Maintain cleanliness: Keep workstations, utensils, and kitchen areas clean and organized, adhering to Wingstop’s standards for cleanliness and sanitation.",
+                "Support teamwork: Collaborate with team members to fulfill orders promptly, ensuring a seamless experience for customers."
+            ],
+            "qualifications": [
+                "Experience: Previous kitchen or fast-food experience preferred but not required; we’re willing to train motivated candidates.",
+                "Skills: Strong attention to detail, ability to work under pressure, and a commitment to food safety practices.",
+                "Physical Requirements: Ability to stand for long periods, lift and carry heavy items, and handle high temperatures in the kitchen.",
+                "Team Player: Positive attitude, dependability, and willingness to learn and adapt in a team-oriented environment."
+            ],
+            "benefits": [
+                "Competitive pay and flexible scheduling",
+                "Opportunities for growth and advancement within the Wingstop team",
+                "Employee discounts on Wingstop products",
+                "A dynamic, supportive, and fun work environment"
+            ],
+            "call_to_action": "If you’re passionate about food, eager to learn, and looking to be part of a great team, apply today to join Wingstop and help us serve up the best wings in town!",
+            "salary_range": "18.00 - 20.00",
+            "salary_currency": "USD",
+            "salary_period": "Hourly",
+            "job_type": "Full-time",
+            "location_id": 1,
+            "openings": 5,
+            "max_openings": 20,
+            "created_date": null,
+            "updated_date": null
+        },
+        {
+            "id": 2,
+            "name": "Cashier",
+            "summary": "Wingstop is looking for a friendly, customer-focused individual to join our team as a Cashier. As the first point of contact for our guests, you’ll play an essential role in delivering exceptional customer service and ensuring every visit to Wingstop is memorable. We’re looking for team players with positive attitudes who are excited to help our guests enjoy the best wings around!",
+            "key_responsibilities": [
+                "Greet and assist customers: Provide a warm, welcoming experience for customers as they enter, taking orders accurately and answering any questions about the menu.",
+                "Process orders and payments: Operate the point-of-sale (POS) system to take orders, handle cash, and process card transactions, ensuring accuracy and efficiency.",
+                "Coordinate with the kitchen team: Communicate effectively with cooks and kitchen staff to ensure orders are fulfilled quickly and correctly.",
+                "Prepare orders for pickup: Assemble to-go orders, confirm order accuracy, and package items for an easy, enjoyable pickup experience.",
+                "Maintain a clean environment: Keep the counter, dining area, and POS station clean and organized, adhering to Wingstop’s standards for cleanliness.",
+                "Provide excellent service: Address customer needs and resolve any issues in a friendly, efficient manner, ensuring every customer leaves satisfied."
+            ],
+            "qualifications": [
+                "Experience: Previous experience in customer service or cashiering preferred but not required; training will be provided.",
+                "Skills: Strong communication skills, attention to detail, and a positive, outgoing attitude.",
+                "Physical Requirements: Ability to stand for extended periods, handle cash transactions, and lift up to 25 pounds if needed.",
+                "Team Player: Friendly, dependable, and willing to work with team members to provide an excellent guest experience."
+            ],
+            "benefits": [
+                "Competitive pay and flexible scheduling",
+                "Opportunities for career growth within Wingstop",
+                "Employee discounts on Wingstop menu items",
+                "A fun, supportive, and fast-paced work environment"
+            ],
+            "call_to_action": "If you’re passionate about delivering great service and creating positive experiences for every guest, we invite you to apply and join the Wingstop family!",
+            "salary_range": "21.00 - 28.00",
+            "salary_currency": "USD",
+            "salary_period": "Hourly",
+            "job_type": "Full-time",
+            "location_id": 2,
+            "openings": 10,
+            "max_openings": 20,
+            "created_date": null,
+            "updated_date": null
+        },
+        {
+            "id": 3,
+            "name": "Cleaner",
+            "summary": "Wingstop is looking for a friendly, individual to join our team.",
+            "key_responsibilities": ["Overall cleaning services"],
+            "qualifications": [
+                "Experience: Previous experience in cleaning restaurants preferred but not required; training will be provided."
+            ],
+            "benefits": [
+                "Competitive pay and flexible scheduling",
+                "Opportunities for career growth within Wingstop",
+                "Employee discounts on Wingstop menu items",
+                "A fun, supportive, and fast-paced work environment"
+            ],
+            "call_to_action": "If you’re passionate about delivering great service and creating positive experiences for every guest, we invite you to apply and join the Wingstop family!",
+            "salary_range": "15.00 - 17.00",
+            "salary_currency": "USD",
+            "salary_period": "Hourly",
+            "job_type": "Full-time",
+            "location_id": 3,
+            "openings": 1,
+            "max_openings": 10,
+            "created_date": null,
+            "updated_date": null
+        }
+    ]
+}

@@ -6,6 +6,7 @@ import { useDictionaryStore } from '@/stores/core/dictionary-store'
 import { TCandidate } from '@/types/pages/candidates/candidate'
 import DeleteCandidateForm from '../forms/delete-form'
 import DynamicDialog from '@/components/core/dialogs/dynamic-dialog'
+import { Locale } from '@/i18n.config'
 
 const DeleteCandidateDialog = ({
     candidate,
@@ -16,7 +17,7 @@ const DeleteCandidateDialog = ({
     isOpen: boolean
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
-    const { dictionary } = useDictionaryStore()
+    const { dictionary, language } = useDictionaryStore()
 
     return (
         <DynamicDialog
@@ -60,7 +61,7 @@ const DeleteCandidateDialog = ({
                         candidate.status_id,
                         getTranslatedCandidateStatus(
                             candidate.status_id,
-                            dictionary
+                            language as Locale
                         )
                     )}
                 </div>
